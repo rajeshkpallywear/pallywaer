@@ -1,0 +1,34 @@
+/*
+Generated time: November 30, 2025 10:01
+This file was created by the app developer. Feel free to contact the original developer with any questions. It was minified (compressed) by AVADA. AVADA do NOT own this script.
+*/
+.discounts {
+    font-size: 1.2rem
+}
+
+.discounts-discount {
+    display: flex;
+    align-items: center;
+    line-height: calc(1 + .5 / var(--font-body-scale))
+}
+
+.discounts-discount svg {
+    color: rgba(var(--color-button), var(--alpha-button-background))
+}
+
+.discounts-discount--position {
+    justify-content: center
+}
+
+.discounts-discount>.icon {
+    color: rgb(var(--color-foreground));
+    width: 1.2rem;
+    height: 1.2rem;
+    margin-right: .7rem
+}
+
+@media screen and (min-width:750px) {
+    .discounts-discount--position {
+        justify-content: flex-end
+    }
+}

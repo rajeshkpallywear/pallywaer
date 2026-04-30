@@ -1,0 +1,5 @@
+/*
+Generated time: November 30, 2025 10:01
+This file was created by the app developer. Feel free to contact the original developer with any questions. It was minified (compressed) by AVADA. AVADA do NOT own this script.
+*/
+customElements.get("back-to-top") || customElements.define("back-to-top", class extends HTMLElement { constructor() { super(), this.button = this.querySelector(".back-to-top"), this.button && (this.timeout = null, window.addEventListener("scroll", () => { clearTimeout(this.timeout), this.timeout = setTimeout(() => { 450 < window.scrollY ? this.button.classList.add("back-to-top-visible") : this.button.classList.remove("back-to-top-visible") }, 200) }), this.button.addEventListener("click", t => { t.preventDefault(), this.handleClick() })) } handleClick() { document.documentElement.scrollTo({ top: 0, behavior: "smooth" }) } });
