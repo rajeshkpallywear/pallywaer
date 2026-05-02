@@ -1,0 +1,92 @@
+{{ 'component-cart.aio.min.css' | asset_url | stylesheet_tag }}
+{{ 'component-cart-items.aio.min.css' | asset_url | stylesheet_tag }}
+{{ 'component-totals.aio.min.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.aio.min.css' | asset_url | stylesheet_tag }}
+{{ 'component-discounts.aio.min.css' | asset_url | stylesheet_tag }}
+{{ 'component-loading-overlay.aio.min.css' | asset_url | stylesheet_tag }}
+{{ 'component-slider.aio.min.css' | asset_url | stylesheet_tag }}
+{{ 'template-collection.aio.min.css' | asset_url | stylesheet_tag }}
+{{ 'quick-add.aio.min.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.aio.min.css' | asset_url | stylesheet_tag }}
+
+<cart-items class="{% if cart == empty %} is-empty{% endif %}">
+  <div class="cart-page">
+    <form action="{{ routes.cart_url }}" method="post" id="cart">
+      <div id="main-cart-items">
+        {% if cart != empty %}
+          <table class="cart-items">
+            <tbody>
+              {% for item in cart.items %}
+                {% assign printing_cost = item.properties['Printing Cost'] | default: 0 %}
+                {% assign total_printing_cost = printing_cost | times: item.quantity %}
+                {% assign total_with_printing = item.final_line_price | divided_by: 100 | plus: total_printing_cost %}
+
+                <tr class="cart-item">
+                   
+                  <td class="cart-item-image">
+              {% if item.properties.Customer_img contains 'http' %}
+  <img 
+    src="{{ item.properties.Customer_img }}" 
+    alt="{{ item.product.title }}" 
+    width="75" 
+    height="75"
+  >
+{% endif %}
+                    {% if item.image %}
+                      <img
+                        src="{{ item.image | image_url: width: 150 }}"
+                        alt="{{ item.product.title }}"
+                        width="75"
+                        height="{{ 75 | divided_by: item.image.aspect_ratio | ceil }}"
+                      >
+                        
+                    {% endif %}
+                  </td>
+
+                  <td class="cart-item-details">
+                    <p class="cart-item-title">{{ item.product.title }}</p>
+                    {% if item.variant.title != 'Default Title' %}
+                      <p class="cart-item-variant">{{ item.variant.title }}</p>
+                    {% endif %}
+
+                    <p>Price: ₹{{ item.final_price | divided_by: 100 }} × {{ item.quantity }}</p>
+                    {% if printing_cost > 0 %}
+                      <p>Printing Cost: ₹{{ printing_cost }} × {{ item.quantity }}</p>
+                    {% endif %}
+                    <p>
+                      <strong>Total: ₹{{ total_with_printing }}</strong>
+                    </p>
+                  </td>
+
+                  <td class="cart-item-quantity">
+                    <quantity-input class="quantity cart-quantity">
+                      <button class="quantity-button" name="minus" type="button">-</button>
+                      <input
+                        class="quantity-input"
+                        name="updates[]"
+                        type="number"
+                        value="{{ item.quantity }}"
+                        min="1"
+                        data-cart-quantity="{{ cart | item_count_for_variant: item.variant.id }}"
+                        data-quantity-variant-id="{{ item.variant.id }}"
+                      >
+                      <button class="quantity-button" name="plus" type="button">+</button>
+                    </quantity-input>
+                  </td>
+
+                  <td class="cart-item-remove">
+                    <cart-remove-button>
+                      <a href="{{ item.url_to_remove }}" class="button button--tertiary"> Remove </a>
+                    </cart-remove-button>
+                  </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        {% else %}
+          <p>Your cart is empty.</p>
+        {% endif %}
+      </div>
+    </form>
+  </div>
+</cart-items>

@@ -1,0 +1,133 @@
+<div id="CartDrawer" class="drawer">
+  <div id="CartDrawer-Overlay" class="drawer-overlay"></div>
+  <div class="drawer-inner">
+    <div class="drawer-header">
+      <h2>Your Cart</h2>
+      <button type="button" class="drawer-close" aria-label="Close Cart">&times;</button>
+    </div>
+
+    <div class="drawer-content">
+      {% if cart.items.size == 0 %}
+        <p>Your cart is currently empty.</p>
+      {% else %}
+        <table class="cart-items">
+          <tbody>
+            {% for item in cart.items %}
+              {% assign printing_cost = item.properties['Printing Cost'] | default: 0 %}
+              {% assign total_printing_cost = printing_cost | times: item.quantity %}
+              {% assign total_with_printing = item.final_line_price | divided_by: 100 | plus: total_printing_cost %}
+
+              <tr
+                class="cart-item"
+                data-cart-item
+                data-printing-cost="{{ printing_cost }}"
+              >
+                <td class="cart-item-image">
+                  {% if item.image %}
+                    <img
+                      src="{{ item.image | image_url: width: 150 }}"
+                      alt="{{ item.product.title }}"
+                      width="75"
+                      height="{{ 75 | divided_by: item.image.aspect_ratio | ceil }}"
+                    >
+                  {% endif %}
+                </td>
+
+                <td class="cart-item-details">
+                  <p class="cart-item-title">{{ item.product.title }}</p>
+
+                  {% if item.variant.title != 'Default Title' %}
+                    <p class="cart-item-variant">{{ item.variant.title }}</p>
+                  {% endif %}
+
+                  <p class="cart-item-price">Price: ₹{{ item.final_price | divided_by: 100 }} × {{ item.quantity }}</p>
+
+                  {% if printing_cost > 0 %}
+                    <p class="cart-item-printing-cost">Printing Cost: ₹{{ printing_cost }} × {{ item.quantity }}</p>
+                  {% endif %}
+
+                  <p class="cart-item-total-with-printing">
+                    Total :
+                    <strong>₹{{ total_with_printing }}</strong>
+                  </p>
+                </td>
+
+                <td class="cart-item-quantity">
+                  <quantity-input class="quantity cart-quantity">
+                    <button class="quantity-button" name="minus" type="button">-</button>
+                    <input
+                      class="quantity-input"
+                      name="updates[]"
+                      type="number"
+                      value="{{ item.quantity }}"
+                      min="1"
+                      data-cart-quantity="{{ cart | item_count_for_variant: item.variant.id }}"
+                      data-quantity-variant-id="{{ item.variant.id }}"
+                    >
+                    <button class="quantity-button" name="plus" type="button">+</button>
+                  </quantity-input>
+                </td>
+
+                <td class="cart-item-remove">
+                  <cart-remove-button>
+                    <a
+                      href="{{ item.url_to_remove }}"
+                      class="button button--tertiary"
+                      aria-label="Remove {{ item.product.title }}"
+                    >
+                      Remove
+                    </a>
+                  </cart-remove-button>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+
+        {% assign subtotal = cart.total_price | divided_by: 100 %}
+        <div class="cart-subtotal">
+          <p>
+            Subtotal :
+            <strong
+              class="cart-subtotal-price"
+              data-original-subtotal="{{ subtotal }}"
+            >
+              ₹{{ subtotal }}
+            </strong>
+          </p>
+        </div>
+
+        <div class="cart-actions">
+          <a href="/cart" class="button button--secondary">View Cart</a>
+          <a href="/checkout" class="button button--primary">Checkout</a>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    function updateCartDrawerSubtotal() {
+      let printingCostTotal = 0;
+      document.querySelectorAll(".cart-item").forEach((item) => {
+        const printingCost = parseInt(item.dataset.printingCost || 0);
+        const quantityInput = item.querySelector('[name="updates[]"]');
+        const quantity = quantityInput ? parseInt(quantityInput.value) : 1;
+        printingCostTotal += printingCost * quantity;
+      });
+
+      const subtotalElement = document.querySelector(".cart-subtotal-price");
+      if (subtotalElement) {
+        const originalSubtotal = parseFloat(subtotalElement.dataset.originalSubtotal || 0);
+        subtotalElement.textContent = `₹${(originalSubtotal + printingCostTotal).toFixed(2)}`;
+      }
+    }
+
+    updateCartDrawerSubtotal();
+
+    document.querySelectorAll('[name="updates[]"]').forEach((input) => {
+      input.addEventListener("change", updateCartDrawerSubtotal);
+    });
+  });
+</script>

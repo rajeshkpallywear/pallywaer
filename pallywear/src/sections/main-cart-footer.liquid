@@ -1,0 +1,42 @@
+<div class="cart__footer">
+  {% assign total_extra_cost = 0 %}
+  {% for item in cart.items %}
+    {% if item.properties['Printing Cost'] %}
+      {% assign printing_cost = item.properties['Printing Cost'] | plus: 0 %}
+      {% assign line_printing_cost = printing_cost | times: item.quantity %}
+      {% assign total_extra_cost = total_extra_cost | plus: line_printing_cost %}
+    {% endif %}
+  {% endfor %}
+
+  {% assign real_total = cart.total_price | divided_by: 100 | plus: total_extra_cost %}
+
+  <div class="cart-subtotal">
+    <p class="totals">
+      <span class="totals-label">{{ 'sections.cart.new_subtotal' | t }}</span>
+      <span class="totals-value cart-subtotal-price" data-original-subtotal="{{ real_total }}">
+        ₹{{ real_total }}
+      </span>
+    </p>
+  </div>
+
+
+
+  <div class="cart__ctas">
+    <div class="cart__ctas">
+  <a href="{{ routes.all_products_collection_url }}" class="button button--secondary">
+    {{ 'general.continue_shopping' | t }}
+  </a>
+
+    <a href="/checkout" class="button button--secondary">
+         {{ 'sections.cart.checkout' | t }}
+  </a>
+
+</div>
+
+
+  </div>
+
+  <div id="cart-live-region-text" class="visually-hidden" aria-live="polite" role="status">
+    Cart updated. New total: ₹{{ real_total }}
+  </div>
+</div>

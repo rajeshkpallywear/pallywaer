@@ -1,0 +1,14 @@
+{% assign total_extra_cost = 0 %}
+{% for item in cart.items %}
+  {% if item.properties['Printing Cost'] %}
+    {% assign printing_cost = item.properties['Printing Cost'] | plus: 0 %}
+    {% assign line_printing_cost = printing_cost | times: item.quantity %}
+    {% assign total_extra_cost = total_extra_cost | plus: line_printing_cost %}
+  {% endif %}
+{% endfor %}
+
+{% assign real_total = cart.total_price | divided_by: 100 | plus: total_extra_cost %}
+
+<p class="visually-hidden" id="cart-live-region-text" aria-live="polite" role="status">
+  {{ 'sections.cart.new_subtotal' | t }}: ₹{{ real_total }}
+</p>

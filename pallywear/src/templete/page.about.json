@@ -1,0 +1,199 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_JamnM6": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_rRWki9": {
+          "type": "heading",
+          "settings": {
+            "heading": "CEO’s Note",
+            "heading_size": "extra-large",
+            "heading_style": "default",
+            "heading_tag": "h2"
+          }
+        },
+        "text_78mPdr": {
+          "type": "text",
+          "settings": {
+            "text": "<p>At Pallywear, we believe that fashion is more than just clothing - it’s an expression of identity, culture, and craftsmanship. Our mission is to redefine personalized fashion by offering high-quality, custom-made apparel that aligns with our customers’ unique preferences.</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_rRWki9",
+        "text_78mPdr"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/IMG_5904.jpg",
+        "caption": "",
+        "desktop_image_width": "small",
+        "layout": "image_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "full_width": false,
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "ignore_spacing": false,
+        "margin_spacing": "negative",
+        "margin_top": 0,
+        "mobile_content_alignment": "left"
+      }
+    },
+    "featured_collections_Kp84LK": {
+      "type": "featured-collections",
+      "blocks": {
+        "caption_QxVWFM": {
+          "type": "caption",
+          "settings": {
+            "caption": "About Us",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
+          }
+        },
+        "heading_8yjf7F": {
+          "type": "heading",
+          "settings": {
+            "heading": "Why Choose Pallywear?",
+            "heading_size": "medium",
+            "heading_style": "default",
+            "heading_tag": "h2"
+          }
+        },
+        "text_JjytN3": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Customer satisfaction is our top priority. At Pallywear, we cater to everyone - from individuals to large-scale businesses - by delivering  quality products, covering the entire process from design to delivery. Whether you need a single customized outfit or bulk orders, we ensure the same level of dedication and quality.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "caption_QxVWFM",
+        "heading_8yjf7F",
+        "text_JjytN3"
+      ],
+      "name": "t:sections.featured-collections.presets.name",
+      "settings": {
+        "featured_collection_1": "corporate-gifts",
+        "featured_collection_2": "bottles-1",
+        "layout": "text_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "desktop_collections_alignment": "first-down",
+        "image_ratio": "square",
+        "full_width": false,
+        "color_scheme": "",
+        "color_scheme_1": "",
+        "padding_top": 12,
+        "padding_bottom": 12,
+        "ignore_spacing": false,
+        "margin_spacing": "negative",
+        "margin_top": 0
+      }
+    },
+    "image_with_text": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Our Vision",
+            "heading_size": "large",
+            "heading_style": "default",
+            "heading_tag": "h2"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We envision Pallywear as a brand that seamlessly blends creativity, innovation, and precision to bring personalized fashion to the forefront. By combining traditional craftsmanship with modern technology, we aim to empower individuals and businesses with custom apparel solutions that reflect their unique identity.</p><p></p><p>We take pride in being a brand that listens, innovates, and delivers - fashion tailored to you, with you in mind.</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/89.jpg",
+        "caption": "",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "full_width": true,
+        "color_scheme": "option-1",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "ignore_spacing": true,
+        "margin_spacing": "negative",
+        "margin_top": 0,
+        "mobile_content_alignment": "left"
+      }
+    },
+    "1766056890212dbb7e": {
+      "type": "apps",
+      "blocks": {
+        "google_reviews_google_carousel_one_ybYdbB": {
+          "type": "shopify://apps/google-reviews/blocks/google-carousel-one/4eeaae1c-902b-481c-bec5-3f32291a58d5",
+          "settings": {
+            "rank": "1",
+            "photo_size": "large",
+            "auto_scroll": true,
+            "auto_scroll_interval": 3,
+            "rating": true,
+            "submit_review_button": true,
+            "business_info": true,
+            "review_photo": true,
+            "review_card_shadow": false,
+            "corner_radius": 20,
+            "star_color": "#f6ab00",
+            "review_card_background": "#f3f6f9",
+            "content_color": "#000000",
+            "name_color": "#000000",
+            "date_color": "#7a7a7a",
+            "more_color": "#1a73e8",
+            "submit_button_background_color": "#0084ff",
+            "submit_button_text": "#ffffff",
+            "business_info_color": "#000000"
+          }
+        }
+      },
+      "block_order": [
+        "google_reviews_google_carousel_one_ybYdbB"
+      ],
+      "settings": {
+        "include_margins": true,
+        "padding_top": 96,
+        "padding_bottom": 96
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_JamnM6",
+    "featured_collections_Kp84LK",
+    "image_with_text",
+    "1766056890212dbb7e"
+  ]
+}

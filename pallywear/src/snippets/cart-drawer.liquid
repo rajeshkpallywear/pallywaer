@@ -1,0 +1,196 @@
+{% comment %}
+  Renders cart drawer
+
+  Usage:
+  {% render 'cart-drawer' %}
+{% endcomment %}
+
+<script src="{{ 'cart.js' | asset_url }}" defer="defer"></script>
+{{ 'component-card.aio.min.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.aio.min.css' | asset_url | stylesheet_tag }}
+{{ 'component-rte.aio.min.css' | asset_url | stylesheet_tag }}
+{{ 'component-slider.aio.min.css' | asset_url | stylesheet_tag }}
+{{ 'template-collection.aio.min.css' | asset_url | stylesheet_tag }}
+{{ 'quick-add.aio.min.css' | asset_url | stylesheet_tag }}
+
+<style>
+  .drawer {
+    visibility: hidden;
+  }
+  .cart-drawer .drawer-inner .card-content-1 {
+    display: none;
+  }
+  .cart-drawer .drawer-inner .card-media .media img:hover {
+    transform: none;
+  }
+  cart-drawer.hide-cart-button .cart-view-button,
+  cart-drawer.hide-checkout-button .cart-checkout-button {
+    display: none;
+  }
+
+  /* ✅ Custom Printing Styling */
+  .cart-item-printing-cost {
+    font-size: 0.9rem;
+    color: #444;
+  }
+  .cart-item-total-with-printing {
+    font-weight: bold;
+    margin-top: 4px;
+    color: #000;
+  }
+
+  /* ✅ Close button styling */
+  .drawer-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.8rem;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+  }
+</style>
+
+<cart-drawer class="drawer{% if cart == empty %} is-empty{% endif %} {% if settings.disable_cart_button == true %}hide-cart-button{% endif %} {% if settings.disable_checkout_button == true %}hide-checkout-button{% endif %}">
+  <div id="CartDrawer" class="cart-drawer">
+    <div id="CartDrawer-Overlay" class="cart-drawer-overlay"></div>
+    <div
+      class="drawer-inner"
+      role="dialog"
+      aria-modal="true"
+      aria-label="{{ 'sections.cart.title' | t }}"
+      tabindex="-1"
+    >
+      <!-- ✅ Drawer Close Button -->
+      <button class="drawer-close" type="button" id="drawerCloseBtn" aria-label="Close Cart">✕</button>
+
+      {%- if cart != empty -%}
+        <div class="drawer-cart-items-wrapper">
+          <table class="cart-items" role="table">
+            <tbody role="rowgroup">
+              {%- for item in cart.items -%}
+                {% assign printing_cost = item.properties['Printing Cost'] | default: 0 %}
+                {% assign total_printing_cost = printing_cost | times: item.quantity %}
+                {% assign total_with_printing = item.final_line_price | divided_by: 100 | plus: total_printing_cost %}
+
+                <tr
+                  id="CartDrawer-Item-{{ forloop.index }}"
+                  class="cart-item"
+                  role="row"
+                  data-aos="fade-up"
+                  data-aos-delay="200"
+                >
+                  <td class="cart-item-media" role="cell">
+                    {% if item.image %}
+                      <a href="{{ item.url }}" class="cart-item-link" tabindex="-1" aria-hidden="true"></a>
+                      <img
+                        class="cart-item-image"
+                        src="{{ item.image | image_url: width: 300 }}"
+                        alt="{{ item.image.alt | escape }}"
+                        loading="lazy"
+                        width="150"
+                        height="{{ 150 | divided_by: item.image.aspect_ratio | ceil }}"
+                      >
+                    {% endif %}
+                  </td>
+
+                  <td class="cart-item-details" role="cell">
+                    <a href="{{ item.url }}" class="cart-item-name h4 break">
+                      {{- item.product.title | escape -}}
+                    </a>
+
+                    <div class="cart-item-price-wrapper">
+                      <span class="price price--end">
+                        Price: ₹{{ item.final_price | divided_by: 100 }} × {{ item.quantity }}
+                      </span>
+                    </div>
+
+                    {% if printing_cost > 0 %}
+                      <p class="cart-item-printing-cost">Printing Cost: ₹{{ printing_cost }} × {{ item.quantity }}</p>
+                    {% endif %}
+
+                    <p class="cart-item-total-with-printing">
+                      Total (with Printing): <strong>₹{{ total_with_printing }}</strong>
+                    </p>
+                  </td>
+
+                  <td class="cart-item-quantity" role="cell">
+                    <quantity-input class="quantity cart-quantity">
+                      <button class="quantity-button no-js-hidden" name="minus" type="button">
+                        {% render 'icon-minus' %}
+                      </button>
+                      <input
+                        class="quantity-input"
+                        type="number"
+                        data-quantity-variant-id="{{ item.variant.id }}"
+                        name="updates[]"
+                        value="{{ item.quantity }}"
+                        min="1"
+                      >
+                      <button class="quantity-button no-js-hidden" name="plus" type="button">
+                        {% render 'icon-plus' %}
+                      </button>
+                    </quantity-input>
+
+                    <cart-remove-button>
+                      <button type="button" class="button button--tertiary">
+                        {% render 'icon-remove' %}
+                      </button>
+                    </cart-remove-button>
+                  </td>
+                </tr>
+              {%- endfor -%}
+            </tbody>
+          </table>
+        </div>
+
+        <!-- ✅ Subtotal (with Printing) -->
+        {% assign subtotal = cart.total_price | divided_by: 100 %}
+        <div class="cart-subtotal" style="padding:10px 0;">
+          <p>
+            Subtotal (without Printing): <strong>₹{{ subtotal }}</strong>
+          </p>
+        </div>
+      {%- else -%}
+        <div class="drawer-inner-empty" style="padding:20px;">Your cart is empty</div>
+      {%- endif -%}
+
+      <div class="cart-ctas">
+        <button
+          type="submit"
+          id="CartDrawer-ViewCart"
+          class="cart-view-button button button--secondary"
+          form="CartDrawer-Form"
+        >
+          {{ 'sections.cart.view_cart' | t }}
+        </button>
+        <button
+          type="submit"
+          id="CartDrawer-Checkout"
+          class="cart-checkout-button button"
+          name="checkout"
+          form="CartDrawer-Form"
+        >
+          {{ 'sections.cart.checkout' | t }}
+        </button>
+      </div>
+    </div>
+  </div>
+</cart-drawer>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const drawer = document.querySelector("#CartDrawer");
+    const overlay = document.querySelector("#CartDrawer-Overlay");
+    const closeBtn = document.querySelector("#drawerCloseBtn");
+
+    function closeCartDrawer() {
+      drawer.classList.remove("active");
+      drawer.classList.remove("is-open");
+      document.body.classList.remove("overflow-hidden");
+    }
+
+    if (closeBtn) closeBtn.addEventListener("click", closeCartDrawer);
+    if (overlay) overlay.addEventListener("click", closeCartDrawer);
+  });
+</script>

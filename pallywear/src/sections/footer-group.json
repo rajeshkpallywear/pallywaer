@@ -1,0 +1,116 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "176623961411143c0b": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true,
+        "padding_top": 96,
+        "padding_bottom": 96
+      }
+    },
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "brand_information_A3zQYx": {
+          "type": "brand_information",
+          "settings": {
+            "brand_headline": "Pallwear Gifting Solutions Private Limited",
+            "brand_description": "<p>📍 No: 49/1, Mudichur Rd, near by Parvathi Nagar, Shanthi Nagar, Old Perungalathur, Chennai, Tamil Nadu 600063, India</p><p>📞+91 89257-58585</p><p>✉️ info@pallywear.com</p>",
+            "brand_image_width": 100,
+            "hide_image": true,
+            "newsletter_enable": false,
+            "show_social": false,
+            "social_icons_size": "small"
+          }
+        },
+        "link_list_JwDAgN": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Quick links",
+            "menu": "footer-main-menu"
+          }
+        }
+      },
+      "block_order": [
+        "brand_information_A3zQYx",
+        "link_list_JwDAgN"
+      ],
+      "settings": {
+        "enable_follow_on_shop": true,
+        "enable_country_selector": true,
+        "enable_language_selector": true,
+        "payment_enable": true,
+        "show_powered_by_link": false,
+        "show_policy": false,
+        "enable_terms": false,
+        "terms_label": "<p>I agree to receive marketing emails</p>",
+        "back_to_top_desktop": true,
+        "back_to_top_bottom": 80,
+        "back_to_top_right": 4,
+        "back_to_top_mobile": true,
+        "centered_content": false,
+        "color_scheme": "option-1",
+        "footer_border": false,
+        "swipe_on_mobile": false,
+        "disable_arrow_mobile": true,
+        "margin_top": 0,
+        "margin_bottom": 80,
+        "make_columns_even": false,
+        "padding_top": 48,
+        "padding_bottom": 16,
+        "ignore_spacing": true
+      }
+    },
+    "1766239612925db64b": {
+      "type": "apps",
+      "blocks": {
+        "essential_trust_badges_app_block_LBc4tN": {
+          "type": "shopify://apps/essential-trust-badges/blocks/app-block/0ff65b25-07e1-408e-950f-f54dd3d1751b",
+          "settings": {
+            "banner_display": "all",
+            "banner_id": "6022ef79-6d09-4f18-a167-af645983a698"
+          }
+        }
+      },
+      "block_order": [
+        "essential_trust_badges_app_block_LBc4tN"
+      ],
+      "settings": {
+        "include_margins": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "custom_liquid_aDVTRC": {
+      "type": "custom-liquid",
+      "custom_css": [
+        "p {text-align: center; margin-top: 0; margin-bottom: 0; font-size: 1.5rem;}"
+      ],
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "<p>\n  Designed &amp; Developed by \n  <a href=\"https://codersville.in\" target=\"_blank\" rel=\"noopener noreferrer\">\n    Codersville Private Limited\n  </a>\n</p>",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "ignore_spacing": false
+      }
+    }
+  },
+  "order": [
+    "176623961411143c0b",
+    "footer",
+    "1766239612925db64b",
+    "custom_liquid_aDVTRC"
+  ]
+}

@@ -1,0 +1,130 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "faq_yWVmWA": {
+      "type": "faq",
+      "name": "FAQ Section",
+      "settings": {
+        "heading": "Frequently Asked Questions"
+      }
+    },
+    "collapsible_content_bKGmtP": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_TU69QQ": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How long does delivery take?",
+            "icon": "question_mark",
+            "row_content": "<p></p><p>We usually deliver orders within <strong>3 to 5 working days</strong>. In Chennai city limits, same-day or next-day delivery is available for urgent orders.</p><p></p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_8bC3RW": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I get custom logo printing on t-shirts?",
+            "icon": "question_mark",
+            "row_content": "<p><br/>Yes! We offer <strong>custom logo printing, embroidery, and name printing</strong>. You can upload your logo or design while placing the order.<br/></p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_gbNXAX": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What printing methods do you use?",
+            "icon": "question_mark",
+            "row_content": "<p><br/>We use <strong>high-quality screen printing, DTF (Direct-to-Factory), and heat transfer printing</strong>, ensuring vibrant colors and long-lasting prints.<br/><br/></p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_mQ4VBK": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Do you accept bulk or corporate orders?",
+            "icon": "question_mark",
+            "row_content": "<p><br/> Absolutely! We specialize in <strong>bulk & corporate t-shirt orders</strong> with discounted rates. Contact us for custom quotes.<br/><br/></p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_HnJahb": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I wash printed t-shirts in a machine?",
+            "icon": "question_mark",
+            "row_content": "<p><br/>   Yes, but we recommend <strong>gentle machine wash or hand wash</strong> to maintain print quality for a longer time.<br/><br/></p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_kyTXqD": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I return or exchange my product?",
+            "icon": "question_mark",
+            "row_content": "<p><br/> we accept returns or exchanges if there’s a manufacturing defect or wrong size delivered. Products must be unused and returned within <strong>7 days</strong>.<br/><br/></p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_ejhYVM": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How can I contact customer support?",
+            "icon": "question_mark",
+            "row_content": "<p><br/>You can reach us via our <strong>Contact page, WhatsApp, or call</strong> at the number mentioned on the site. We reply within a few hours.<br/><br/></p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_TU69QQ",
+        "collapsible_row_8bC3RW",
+        "collapsible_row_gbNXAX",
+        "collapsible_row_mQ4VBK",
+        "collapsible_row_HnJahb",
+        "collapsible_row_kyTXqD",
+        "collapsible_row_ejhYVM"
+      ],
+      "name": "t:sections.collapsible_content.presets.name",
+      "settings": {
+        "caption": "",
+        "text_style": "caption-with-letter-spacing",
+        "text_size": "medium",
+        "heading": "",
+        "heading_size": "medium",
+        "heading_style": "default",
+        "heading_tag": "h2",
+        "heading_alignment": "center",
+        "open_first_collapsible_row": false,
+        "open_all_collapsible_row": false,
+        "color_scheme": "",
+        "color_scheme_1": "",
+        "padding_top": 96,
+        "padding_bottom": 96,
+        "ignore_spacing": false,
+        "margin_spacing": "negative",
+        "margin_top": 0
+      }
+    }
+  },
+  "order": [
+    "main",
+    "faq_yWVmWA",
+    "collapsible_content_bKGmtP"
+  ]
+}

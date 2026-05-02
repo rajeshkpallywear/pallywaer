@@ -1,0 +1,111 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_banner_with_featured_collection_4fMVtG": {
+      "type": "image-banner-with-featured-collection",
+      "blocks": {
+        "heading_nEnJqz": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p><strong>Sports Wear</strong></p>",
+            "heading_size": "medium",
+            "heading_style": "default",
+            "heading_tag": "h3",
+            "highlight_option": "underline-hand",
+            "word_animation_color": "#FFFFFF"
+          }
+        },
+        "caption_mGCnPj": {
+          "type": "caption",
+          "settings": {
+            "caption": "",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
+          }
+        },
+        "text_Cnzkn4": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_nEnJqz",
+        "caption_mGCnPj",
+        "text_Cnzkn4"
+      ],
+      "name": "t:sections.image-banner-with-featured-collection.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/SPORTS_WEAR_fdc377f7-4da5-474c-9e35-9aa3e071acb1.png",
+        "hide_image": false,
+        "image_overlay_opacity": 20,
+        "image_height": 52,
+        "full_width_banner": true,
+        "adapt_to_image": false,
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "enable_collection": true,
+        "collection": "sports-jersey",
+        "collection_style": "collection-three",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "full_width": true,
+        "enable_desktop_slider": false,
+        "desktop_margin_top": 200,
+        "mobile_margin_top": 110,
+        "image_ratio": "portrait",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "enable_quick_add": false,
+        "enable_quick_buy": true,
+        "quick_add_position": "overlay",
+        "color_scheme": "",
+        "color_scheme_1": "",
+        "padding_top": 12,
+        "padding_bottom": 0,
+        "ignore_spacing": false,
+        "image_overlay_opacity_mobile": 50,
+        "image_height_mobile": 56,
+        "margin_spacing": "negative",
+        "margin_top": 0,
+        "mobile_content_alignment": "center",
+        "columns_mobile": "1",
+        "disable_quick_add": false,
+        "swipe_on_mobile": false,
+        "disable_arrow_mobile": true
+      }
+    },
+    "175368803086f325ff": {
+      "type": "_blocks",
+      "settings": {}
+    },
+    "1753770715ed05642c": {
+      "type": "_blocks",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "image_banner_with_featured_collection_4fMVtG",
+    "175368803086f325ff",
+    "1753770715ed05642c"
+  ]
+}

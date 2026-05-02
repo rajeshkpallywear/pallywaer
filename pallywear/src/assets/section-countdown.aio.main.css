@@ -1,0 +1,15 @@
+/*
+Generated time: November 29, 2025 08:19
+This file was created by the app developer. Feel free to contact the original developer with any questions. It was minified (compressed) by AVADA. AVADA do NOT own this script.
+*/
+@media only screen and (min-width:990px) {
+    .countdown-section .first-image {
+        margin-left: 100px;
+        margin-top: -100px
+    }
+
+    .countdown-section .two-images-text-section--right .first-image {
+        margin-right: 100px;
+        margin-left: 0
+    }
+}

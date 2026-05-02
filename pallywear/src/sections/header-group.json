@@ -1,0 +1,92 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "1764498594b069434b": {
+      "type": "apps",
+      "blocks": {
+        "vairo_countdown_timer_product_Qn8GUy": {
+          "type": "shopify://apps/vairo/blocks/countdown-timer-product/3146741e-71a4-43d1-8174-2d896a33983f",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "vairo_countdown_timer_product_Qn8GUy"
+      ],
+      "custom_css": [],
+      "settings": {
+        "include_margins": false,
+        "padding_top": 8,
+        "padding_bottom": 12
+      }
+    },
+    "header": {
+      "type": "header",
+      "settings": {
+        "menu": "main-menu",
+        "menu_type_desktop": "drawer",
+        "all_items_mega": false,
+        "desktop_header_layout": "menu-logo-icons",
+        "show_search_icon": false,
+        "enable_header_full_width": true,
+        "sticky_header_type": "on-scroll-up",
+        "enable_fixed_header_type": true,
+        "enable_fixed_header_type_collection": true,
+        "enable_fixed_header_type_all": false,
+        "transparent_menu": "",
+        "enable_fixed_header_transparent": false,
+        "fixed_header_type_margin": 0,
+        "fixed_header_type_margin_mobile": 2,
+        "button_label": "Lebel",
+        "button_link": "",
+        "button_label_one": "Pulicer",
+        "button_link_one": "",
+        "image_2": "shopify://shop_images/Pallywear-logo-white-Gold.webp",
+        "image_size": "small",
+        "disable_additional_links": false,
+        "enable_item_highlight": true,
+        "item_highlight_text": "HOT",
+        "item_highlight_position": "nth-child(4)",
+        "adjust_item_highlight_position": 10,
+        "enable_country_selector": true,
+        "enable_language_selector": false,
+        "header_icons_decoration": "circle",
+        "color_scheme": "option-2",
+        "item_highlight_background_color": "#d4c4d9",
+        "item_highlight_color": "#1d1d1d",
+        "padding_top": 6,
+        "padding_bottom": 6,
+        "enable_country_selector_mobile": true,
+        "enable_language_selector_mobile": true,
+        "featured_collection_1": "",
+        "featured_collection_2": "",
+        "mobile_desktop_header_layout": "center"
+      }
+    },
+    "custom_liquid_JUNUDY": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "",
+        "color_scheme": "",
+        "padding_top": 12,
+        "padding_bottom": 8,
+        "ignore_spacing": false
+      }
+    }
+  },
+  "order": [
+    "1764498594b069434b",
+    "header",
+    "custom_liquid_JUNUDY"
+  ]
+}

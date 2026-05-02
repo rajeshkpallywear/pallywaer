@@ -1,0 +1,552 @@
+{% doc %}
+  @prompt
+    Create an enquiry form block with the following fields: Customer Name, Customer Number, Customer Email Id, Upload File option, Comment Box, and a Send button. Make it professional and mobile-responsive
+
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-enquiry-form-{{ ai_gen_id }} {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: {{ block.settings.background_color }};
+    border-radius: {{ block.settings.border_radius }}px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .ai-enquiry-form__header-{{ ai_gen_id }} {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .ai-enquiry-form__title-{{ ai_gen_id }} {
+    color: {{ block.settings.text_color }};
+    font-size: {{ block.settings.title_size }}px;
+    margin: 0 0 8px 0;
+    font-weight:600;
+  }
+
+  .ai-enquiry-form__subtitle-{{ ai_gen_id }} {
+    color: {{ block.settings.text_color }};
+    opacity: 0.8;
+    font-size: {{ block.settings.subtitle_size }}px;
+    margin: 0;
+  }
+
+  .ai-enquiry-form__content-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .ai-enquiry-form__field-group-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .ai-enquiry-form__label-{{ ai_gen_id }} {
+    color: {{ block.settings.text_color }};
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .ai-enquiry-form__required-{{ ai_gen_id }} {
+    color: {{ block.settings.error_color }};}
+
+  .ai-enquiry-form__input-{{ ai_gen_id }},
+  .ai-enquiry-form__textarea-{{ ai_gen_id }} {
+    padding: 12px 16px;
+    border: 1px solid {{ block.settings.input_border_color }};
+    border-radius: {{ block.settings.input_border_radius }}px;
+    font-size: 14px;
+    background-color: {{ block.settings.input_background_color }};
+    color: {{ block.settings.text_color }};
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .ai-enquiry-form__input-{{ ai_gen_id }}:focus,
+  .ai-enquiry-form__textarea-{{ ai_gen_id }}:focus {
+    outline: none;
+    border-color: {{ block.settings.accent_color }};
+    box-shadow: 0 0 0 3px rgba({{ block.settings.accent_color | color_extract: 'red' }}, {{ block.settings.accent_color | color_extract: 'green' }}, {{ block.settings.accent_color | color_extract: 'blue' }}, 0.1);
+  }
+
+  .ai-enquiry-form__textarea-{{ ai_gen_id }} {
+    min-height: 120px;
+    resize: vertical;
+  }
+
+  .ai-enquiry-form__file-wrapper-{{ ai_gen_id }} {
+    position: relative;
+    display: inline-block;width: 100%;}
+
+  .ai-enquiry-form__file-input-{{ ai_gen_id }} {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+
+  .ai-enquiry-form__file-button-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 16px;
+    border: 2px dashed {{ block.settings.input_border_color }};
+    border-radius: {{ block.settings.input_border_radius }}px;
+    background-color: {{ block.settings.input_background_color }};
+    color: {{ block.settings.text_color }};
+    cursor: pointer;
+    transition: all 0.3s ease;text-align: center;
+  }
+
+  .ai-enquiry-form__file-button-{{ ai_gen_id }}:hover {
+    border-color: {{ block.settings.accent_color }};
+    background-color: rgba({{ block.settings.accent_color | color_extract: 'red' }}, {{ block.settings.accent_color | color_extract: 'green' }}, {{ block.settings.accent_color | color_extract: 'blue' }}, 0.05);
+  }
+
+  .ai-enquiry-form__file-icon-{{ ai_gen_id }} {
+    width: 20px;
+    height: 20px;}
+
+  .ai-enquiry-form__file-name-{{ ai_gen_id }} {
+    margin-top: 8px;
+    font-size: 12px;
+    color: {{ block.settings.text_color }};
+    opacity: 0.7;
+  }
+
+  .ai-enquiry-form__submit-{{ ai_gen_id }} {
+    padding: 16px 32px;
+    background-color: {{ block.settings.button_color }};
+    color: {{ block.settings.button_text_color }};
+    border: none;
+    border-radius: {{ block.settings.button_border_radius }}px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 8px;
+  }
+
+  .ai-enquiry-form__submit-{{ ai_gen_id }}:hover {
+    background-color: {{ block.settings.button_hover_color }};
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  }
+
+  .ai-enquiry-form__submit-{{ ai_gen_id }}:active {
+    transform: translateY(0);
+  }
+
+  .ai-enquiry-form__success-{{ ai_gen_id }} {
+    color: {{ block.settings.success_color }};
+    background-color: rgba({{ block.settings.success_color | color_extract: 'red' }}, {{ block.settings.success_color | color_extract: 'green' }}, {{ block.settings.success_color | color_extract: 'blue' }}, 0.1);
+    padding: 12px 16px;
+    border-radius: {{ block.settings.input_border_radius }}px;
+    margin-top: 16px;
+    text-align: center;
+  }
+
+  .ai-enquiry-form__error-{{ ai_gen_id }} {
+    color: {{ block.settings.error_color }};
+    background-color: rgba({{ block.settings.error_color | color_extract: 'red' }}, {{ block.settings.error_color | color_extract: 'green' }}, {{ block.settings.error_color | color_extract: 'blue' }}, 0.1);
+    padding: 12px 16px;
+    border-radius: {{ block.settings.input_border_radius }}px;
+    margin-top: 8px;
+    font-size: 14px;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-enquiry-form-{{ ai_gen_id }} {
+      padding: 24px 20px;
+      margin: 0 16px;
+    }
+
+    .ai-enquiry-form__title-{{ ai_gen_id }} {
+      font-size: {{ block.settings.title_size | times: 0.9 }}px;
+    }
+
+    .ai-enquiry-form__content-{{ ai_gen_id }} {
+      gap: 20px;
+    }
+
+    .ai-enquiry-form__submit-{{ ai_gen_id }} {
+      padding: 14px 24px;
+      font-size: 15px;
+    }
+  }
+{% endstyle %}
+
+<enquiry-form-{{ ai_gen_id }}
+  class="ai-enquiry-form-{{ ai_gen_id }}"
+  {{ block.shopify_attributes }}
+>
+  <div class="ai-enquiry-form__header-{{ ai_gen_id }}">
+    {% if block.settings.title != blank %}
+      <h2 class="ai-enquiry-form__title-{{ ai_gen_id }}">{{ block.settings.title }}</h2>
+    {% endif %}
+    {% if block.settings.subtitle != blank %}
+      <p class="ai-enquiry-form__subtitle-{{ ai_gen_id }}">{{ block.settings.subtitle }}</p>
+    {% endif %}
+  </div>
+
+  {% form 'contact' %}
+    <div class="ai-enquiry-form__content-{{ ai_gen_id }}">
+      <div class="ai-enquiry-form__field-group-{{ ai_gen_id }}">
+        <label for="customer-name-{{ ai_gen_id }}" class="ai-enquiry-form__label-{{ ai_gen_id }}">
+          Customer Name <span class="ai-enquiry-form__required-{{ ai_gen_id }}">*</span>
+        </label>
+        <input
+          type="text"
+          id="customer-name-{{ ai_gen_id }}"
+          name="contact[name]"
+          class="ai-enquiry-form__input-{{ ai_gen_id }}"
+          value="{{ form.name }}"
+          required
+          aria-required="true"{% if form.errors contains 'name' %}
+            aria-invalid="true"
+            aria-describedby="name-error-{{ ai_gen_id }}"
+          {% endif %}
+        >
+        {% if form.errors contains 'name' %}
+          <div id="name-error-{{ ai_gen_id }}" class="ai-enquiry-form__error-{{ ai_gen_id }}">
+            {{ form.errors.messages.name }}
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="ai-enquiry-form__field-group-{{ ai_gen_id }}">
+        <label for="customer-phone-{{ ai_gen_id }}" class="ai-enquiry-form__label-{{ ai_gen_id }}">
+          Customer Number <span class="ai-enquiry-form__required-{{ ai_gen_id }}">*</span>
+        </label>
+        <input
+          type="tel"
+          id="customer-phone-{{ ai_gen_id }}"
+          name="contact[phone]"
+          class="ai-enquiry-form__input-{{ ai_gen_id }}"
+          value="{{ form.phone }}"
+          required
+          aria-required="true"
+          {% if form.errors contains 'phone' %}
+            aria-invalid="true"
+            aria-describedby="phone-error-{{ ai_gen_id }}"
+          {% endif %}
+        >
+        {% if form.errors contains 'phone' %}
+          <div id="phone-error-{{ ai_gen_id }}" class="ai-enquiry-form__error-{{ ai_gen_id }}">
+            {{ form.errors.messages.phone }}
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="ai-enquiry-form__field-group-{{ ai_gen_id }}">
+        <label for="customer-email-{{ ai_gen_id }}" class="ai-enquiry-form__label-{{ ai_gen_id }}">
+          Customer Email ID <span class="ai-enquiry-form__required-{{ ai_gen_id }}">*</span>
+        </label>
+        <input
+          type="email"
+          id="customer-email-{{ ai_gen_id }}"
+          name="contact[email]"
+          class="ai-enquiry-form__input-{{ ai_gen_id }}"
+          value="{{ form.email }}"
+          required
+          aria-required="true"
+          autocomplete="email"
+          {% if form.errors contains 'email' %}
+            aria-invalid="true"
+            aria-describedby="email-error-{{ ai_gen_id }}"
+          {% endif %}
+        >
+        {% if form.errors contains 'email' %}
+          <div id="email-error-{{ ai_gen_id }}" class="ai-enquiry-form__error-{{ ai_gen_id }}">
+            {{ form.errors.messages.email }}
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="ai-enquiry-form__field-group-{{ ai_gen_id }}">
+        <label for="file-upload-{{ ai_gen_id }}" class="ai-enquiry-form__label-{{ ai_gen_id }}">
+          Upload File
+        </label>
+        <div class="ai-enquiry-form__file-wrapper-{{ ai_gen_id }}">
+          <input
+            type="file"
+            id="file-upload-{{ ai_gen_id }}"
+            name="contact[file]"
+            class="ai-enquiry-form__file-input-{{ ai_gen_id }}"
+            accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.gif">
+          <div class="ai-enquiry-form__file-button-{{ ai_gen_id }}">
+            <svg class="ai-enquiry-form__file-icon-{{ ai_gen_id }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7,10 12,15 17,10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span class="ai-enquiry-form__file-text-{{ ai_gen_id }}">Choose file or drag here</span>
+          </div>
+          <div class="ai-enquiry-form__file-name-{{ ai_gen_id }}"></div>
+        </div>
+      </div>
+
+      <div class="ai-enquiry-form__field-group-{{ ai_gen_id }}">
+        <label for="customer-message-{{ ai_gen_id }}" class="ai-enquiry-form__label-{{ ai_gen_id }}">
+          Comment
+        </label>
+        <textarea
+          id="customer-message-{{ ai_gen_id }}"
+          name="contact[body]"
+          class="ai-enquiry-form__textarea-{{ ai_gen_id }}"
+          placeholder="Please share your enquiry details..."
+          {% if form.errors contains 'body' %}
+            aria-invalid="true"
+            aria-describedby="message-error-{{ ai_gen_id }}"
+          {% endif %}
+        >{{ form.body }}</textarea>
+        {% if form.errors contains 'body' %}
+          <div id="message-error-{{ ai_gen_id }}" class="ai-enquiry-form__error-{{ ai_gen_id }}">
+            {{ form.errors.messages.body }}
+          </div>
+        {% endif %}
+      </div>
+
+      <button type="submit" class="ai-enquiry-form__submit-{{ ai_gen_id }}">
+        {{ block.settings.button_text }}
+      </button>
+
+      {% if form.posted_successfully? %}
+        <div class="ai-enquiry-form__success-{{ ai_gen_id }}">
+          {{ block.settings.success_message }}
+        </div>
+      {% endif %}
+    </div>
+  {% endform %}
+</enquiry-form-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class EnquiryForm{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        this.fileInput = this.querySelector('.ai-enquiry-form__file-input-{{ ai_gen_id }}');
+        this.fileButton = this.querySelector('.ai-enquiry-form__file-button-{{ ai_gen_id }}');
+        this.fileText = this.querySelector('.ai-enquiry-form__file-text-{{ ai_gen_id }}');
+        this.fileName = this.querySelector('.ai-enquiry-form__file-name-{{ ai_gen_id }}');
+
+        this.setupFileUpload();
+      }
+
+      setupFileUpload() {
+        if (!this.fileInput) return;
+
+        this.fileInput.addEventListener('change', (event) => {
+          const file = event.target.files[0];
+          if (file) {
+            this.fileText.textContent = 'File selected';
+            this.fileName.textContent = `Selected: ${file.name}`;
+            this.fileButton.style.borderColor = 'var(--accent-color, #007acc)';
+          } else {
+            this.fileText.textContent = 'Choose file or drag here';
+            this.fileName.textContent = '';
+            this.fileButton.style.borderColor = '';
+          }
+        });
+
+        this.fileButton.addEventListener('dragover', (event) => {
+          event.preventDefault();
+          this.fileButton.style.borderColor = 'var(--accent-color, #007acc)';
+          this.fileButton.style.backgroundColor = 'rgba(0, 122, 204, 0.05)';
+        });
+
+        this.fileButton.addEventListener('dragleave', () => {
+          this.fileButton.style.borderColor = '';
+          this.fileButton.style.backgroundColor = '';
+        });
+
+        this.fileButton.addEventListener('drop', (event) => {
+          event.preventDefault();
+          const files = event.dataTransfer.files;
+          if (files.length > 0) {
+            this.fileInput.files = files;
+            const changeEvent = new Event('change', { bubbles: true });
+            this.fileInput.dispatchEvent(changeEvent);
+          }
+          this.fileButton.style.borderColor = '';
+          this.fileButton.style.backgroundColor = '';
+        });
+      }
+    }
+
+    customElements.define('enquiry-form-{{ ai_gen_id }}', EnquiryForm{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Enquiry Form",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Form title",
+      "default": "Contact Us"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Form subtitle",
+      "default": "We'd love to hear from you. Send us your enquiry and we'll respond as soon as possible."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Send Enquiry"
+    },
+    {
+      "type": "text",
+      "id": "success_message",
+      "label": "Success message",
+      "default": "Thank you for your enquiry! We'll get back to you soon."
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#1d1d1d"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent color",
+      "default": "#007acc"
+    },
+    {
+      "type": "color",
+      "id": "input_background_color",
+      "label": "Input background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "input_border_color",
+      "label": "Input border color",
+      "default": "#d1d1d1"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "Button color",
+      "default": "#007acc"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_color",
+      "label": "Button hover color",
+      "default": "#005a99"
+    },
+    {
+      "type": "color",
+      "id": "success_color",
+      "label": "Success color",
+      "default": "#008060"
+    },
+    {
+      "type": "color",
+      "id": "error_color",
+      "label": "Error color",
+      "default": "#d82c0d"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "min": 20,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Title size",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "subtitle_size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Subtitle size",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Border Radius"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "min": 0,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "label": "Form border radius",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "input_border_radius",
+      "min": 0,
+      "max": 12,
+      "step": 1,
+      "unit": "px",
+      "label": "Input border radius",
+      "default": 6
+    },
+    {
+      "type": "range",
+      "id": "button_border_radius",
+      "min": 0,
+      "max": 12,
+      "step": 1,
+      "unit": "px",
+      "label": "Button border radius",
+      "default": 6
+    }
+  ],
+  "presets": [
+    {
+      "name": "Enquiry Form"
+    }
+  ]
+}
+{% endschema %}

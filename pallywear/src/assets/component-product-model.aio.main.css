@@ -1,0 +1,48 @@
+/*
+Generated time: November 30, 2025 10:01
+This file was created by the app developer. Feel free to contact the original developer with any questions. It was minified (compressed) by AVADA. AVADA do NOT own this script.
+*/
+.product-xr-button {
+    background: rgba(var(--color-foreground), .08);
+    color: rgb(var(--color-foreground));
+    margin: 1rem auto;
+    box-shadow: none;
+    display: flex
+}
+
+.button.product-xr-button:hover {
+    box-shadow: none
+}
+
+.product-xr-button[data-shopify-xr-hidden] {
+    visibility: hidden
+}
+
+.shopify-design-mode .product-xr-button[data-shopify-xr-hidden] {
+    display: none
+}
+
+.product-xr-button .icon {
+    width: 1.4rem;
+    margin-right: 1rem
+}
+
+@media screen and (max-width:749px) {
+    slider-component .product-xr-button {
+        display: none
+    }
+
+    .active .product-xr-button:not([data-shopify-xr-hidden]) {
+        display: block
+    }
+}
+
+@media screen and (min-width:750px) {
+    slider-component+.button.product-xr-button {
+        display: none
+    }
+
+    .product-xr-button[data-shopify-xr-hidden] {
+        display: none
+    }
+}

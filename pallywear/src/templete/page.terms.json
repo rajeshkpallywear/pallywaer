@@ -1,0 +1,64 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "rich_text_iWr7Uk": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_rHUKX4": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>Terms & Conditions</p>",
+            "heading_size": "large",
+            "heading_style": "default",
+            "heading_tag": "h1",
+            "highlight_option": "underline-hand",
+            "word_animation_color": "#272727"
+          }
+        },
+        "text_GjcR9H": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Last Updated: Dec 3, 2025</strong></p><p>Welcome to PallyWear. By accessing or using our website, you agree to the Terms and Conditions outlined below. These Terms govern your use of our website and all products and services offered by PallyWear.</p><p><strong>1. General Use of Website</strong></p><p>By using our site, you confirm that:</p><ul><li>You are at least the age of majority in your region, OR</li><li>You have consent from a parent/guardian for minors using the site.<br/><br/></li></ul><p>You agree not to engage in unlawful, harmful, or unauthorized activities on our website.</p><p><strong>2. Accuracy of Information</strong></p><p>We aim to provide accurate, complete, and updated product information.<br/> If any information contains errors or requires clarification, we will correct it promptly once identified.</p><p><strong>3. Products and Pricing</strong></p><ul><li>Product availability, descriptions, and pricing may change without prior notice.</li><li>We make every effort to display product colors accurately, but variations may occur based on device screens.</li><li>We may limit quantities per order to prevent misuse or bulk unauthorized purchases.<br/><br/></li></ul><p><strong>4. Order Acceptance & Fulfillment</strong></p><p>When you place an order, you will receive an <strong>order confirmation email</strong>.<br/> Orders are processed and shipped according to our Shipping Policy.</p><p>If any item is out of stock or cannot be processed, we will notify you and provide alternatives or a refund.</p><p><strong>5. Shipping and Delivery</strong></p><p>Shipping timelines, tracking, lost packages, and responsibilities are outlined clearly in our <strong>Shipping Policy</strong>, which forms part of these Terms.</p><p><strong>6. Customized & Personalized Products</strong></p><p>Customized items (including printed names, logos, or designs) are made specifically for you.</p><ul><li>You may request a <strong>full refund BEFORE printing</strong>, if you are not satisfied with the design preview.</li><li>After printing begins, customized items become <strong>non-returnable and non-refundable</strong>.<br/><br/></li></ul><p>This aligns with our detailed <strong>Return & Refund Policy</strong>.</p><p><strong>7. Returns & Refunds</strong></p><p>Our <strong>Return & Refund Policy</strong> governs all return windows, eligibility, procedures, and refund timelines.</p><p>Non-customized items:</p><ul><li>Return request must be raised within <strong>24 - 48 hours</strong> of delivery.</li><li>Items must be unused, unwashed, undamaged, and with original tags.<br/><br/></li></ul><p>Customized items:</p><ul><li>Refund allowed before printing (preview stage).</li><li>Not eligible for return after printing.<br/><br/></li></ul><p><strong>8. Payment & Billing Information</strong></p><p>You agree to provide accurate and complete billing information.<br/> We may cancel or limit orders in cases of:</p><ul><li>Incorrect information</li><li>Suspected fraudulent activity</li><li>Bulk reseller intent<br/><br/></li></ul><p>We will notify you via the contact details provided.</p><p><strong>9. Third-Party Tools and Links</strong></p><p>Our website may include links or tools from third parties.<br/> We are not responsible for external websites and recommend reviewing their policies before engaging with them.</p><p><strong>10. User Content & Feedback</strong></p><p>By submitting suggestions or feedback, you grant PallyWear the right to use such content for improvements without obligation to compensate you.</p><p><strong>11. Prohibited Activities</strong></p><p>You may not use our website to:</p><ul><li>Violate laws</li><li>Upload harmful code</li><li>Mislead users</li><li>Infringe intellectual property</li><li>Harass or discriminate</li><li>Attempt unauthorized access or data scraping<br/><br/></li></ul><p>We may restrict access in cases of violations.</p><p><strong>12. Limitation of Liability</strong></p><p>We provide our services “as available” and “as is,” while ensuring reasonable safety, quality, and compliance.</p><p>To the extent permitted by law, PallyWear is not responsible for:</p><ul><li>Loss due to misuse of products</li><li>Loss due to external courier delays outside our control</li><li>Damages caused by unauthorized access to your account<br/><br/></li></ul><p>PallyWear remains responsible for lawful delivery, order support, and issues covered under our policies.</p><p><strong>13. Indemnification</strong></p><p>You agree to indemnify PallyWear against claims arising from misuse of our website or violation of these Terms.</p><p><strong>14. Severability</strong></p><p>If any section of these Terms is deemed unenforceable, remaining sections continue in effect.</p><p><strong>15. Termination</strong></p><p>We may restrict or terminate access if Terms are violated.<br/> You may stop using our site at any time.</p><p><strong>16. Governing Law</strong></p><p>All Terms are governed by the laws of India.</p><p><strong>17. Updates to Terms</strong></p><p>We may update these Terms periodically. Continued use of the site indicates acceptance of the latest version.</p><p><strong>18. Contact Information</strong></p><p>For any questions regarding Terms & Conditions, reach us at: </p><p>📧 <strong>info@pallywear.com</strong> </p><p>📍 Chennai, Tamil Nadu, India</p><p></p><p></p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_rHUKX4",
+        "text_GjcR9H"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "full_width": true,
+        "color_scheme": "option-2",
+        "padding_top": 12,
+        "padding_bottom": 0,
+        "ignore_spacing": false,
+        "margin_spacing": "negative",
+        "margin_top": 0,
+        "mobile_content_alignment": "left"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_iWr7Uk"
+  ]
+}

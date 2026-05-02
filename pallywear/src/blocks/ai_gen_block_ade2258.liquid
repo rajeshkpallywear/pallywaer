@@ -1,0 +1,728 @@
+{% doc %}
+  @prompt
+    Fix existing cart popup functionality without creating new cart icons. Add CSS to make cart content scrollable and JavaScript to fix the X close button. Only modify the cart popup/drawer behavior, not the cart trigger icon., want a checkout button that button should goes to checkout page
+
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-cart-popup-fix-{{ ai_gen_id }} {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+
+  .ai-cart-popup-fix-{{ ai_gen_id }}.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .ai-cart-popup-overlay-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: {{ block.settings.overlay_color }};
+    opacity: {{ block.settings.overlay_opacity | divided_by: 100.0 }};
+  }
+
+  .ai-cart-popup-drawer-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: {{ block.settings.drawer_width }}px;
+    max-width: 90vw;
+    height: 100%;
+    background-color: {{ block.settings.drawer_background }};
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ai-cart-popup-fix-{{ ai_gen_id }}.active .ai-cart-popup-drawer-{{ ai_gen_id }} {
+    transform: translateX(0);
+  }
+
+  .ai-cart-popup-header-{{ ai_gen_id }} {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: {{ block.settings.header_padding }}px;
+    border-bottom: 1px solid {{ block.settings.border_color }};
+    flex-shrink: 0;
+  }
+
+  .ai-cart-popup-title-{{ ai_gen_id }} {
+    font-size: {{ block.settings.title_size }}px;
+    font-weight: 600;
+    color: {{ block.settings.text_color }};
+    margin: 0;
+  }
+
+  .ai-cart-popup-close-{{ ai_gen_id }} {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    color: {{ block.settings.text_color }};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+  }
+
+  .ai-cart-popup-close-{{ ai_gen_id }}:hover {
+    background-color: {{ block.settings.close_hover_color }};
+  }
+
+  .ai-cart-popup-close-{{ ai_gen_id }} svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .ai-cart-popup-content-{{ ai_gen_id }} {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: {{ block.settings.content_padding }}px;
+    scrollbar-width: thin;
+    scrollbar-color: {{ block.settings.scrollbar_color }} transparent;
+  }
+
+  .ai-cart-popup-content-{{ ai_gen_id }}::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .ai-cart-popup-content-{{ ai_gen_id }}::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .ai-cart-popup-content-{{ ai_gen_id }}::-webkit-scrollbar-thumb {
+    background-color: {{ block.settings.scrollbar_color }};
+    border-radius: 3px;
+  }
+
+  .ai-cart-popup-content-{{ ai_gen_id }}::-webkit-scrollbar-thumb:hover {
+    background-color: {{ block.settings.scrollbar_hover_color }};
+  }
+
+  .ai-cart-popup-footer-{{ ai_gen_id }} {
+    padding: {{ block.settings.footer_padding }}px;
+    border-top: 1px solid {{ block.settings.border_color }};
+    flex-shrink: 0;
+    background-color: {{ block.settings.drawer_background }};
+  }
+
+  .ai-cart-total-{{ ai_gen_id }} {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    font-size: {{ block.settings.total_font_size }}px;
+    font-weight: 600;
+    color: {{ block.settings.text_color }};
+  }
+
+  .ai-checkout-button-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    padding: {{ block.settings.button_padding }}px;
+    background-color: {{ block.settings.button_color }};
+    color: {{ block.settings.button_text_color }};
+    border: none;
+    border-radius: {{ block.settings.button_border_radius }}px;
+    font-size: {{ block.settings.button_font_size }}px;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-bottom: 12px;
+  }
+
+  .ai-checkout-button-{{ ai_gen_id }}:hover {
+    background-color: {{ block.settings.button_hover_color }};
+    transform: translateY(-1px);
+  }
+
+  .ai-view-cart-button-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    padding: {{ block.settings.secondary_button_padding }}px;
+    background-color: transparent;
+    color: {{ block.settings.text_color }};
+    border: 1px solid {{ block.settings.border_color }};
+    border-radius: {{ block.settings.button_border_radius }}px;
+    font-size: {{ block.settings.secondary_button_font_size }}px;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .ai-view-cart-button-{{ ai_gen_id }}:hover {
+    background-color: {{ block.settings.text_color }};
+    color: {{ block.settings.drawer_background }};
+  }
+
+  .ai-cart-popup-empty-{{ ai_gen_id }} {
+    text-align: center;
+    padding: 40px 20px;
+    color: {{ block.settings.text_color }};
+  }
+
+  .ai-cart-popup-empty-title-{{ ai_gen_id }} {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .ai-cart-popup-empty-text-{{ ai_gen_id }} {
+    font-size: 14px;
+    opacity: 0.7;
+  }
+
+  .ai-cart-item-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 0;
+    border-bottom: 1px solid {{ block.settings.border_color }};
+  }
+
+  .ai-cart-item-{{ ai_gen_id }}:last-child {
+    border-bottom: none;
+  }
+
+  .ai-cart-item-image-{{ ai_gen_id }} {
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .ai-cart-item-image-{{ ai_gen_id }} img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ai-cart-item-details-{{ ai_gen_id }} {
+    flex: 1;
+  }
+
+  .ai-cart-item-title-{{ ai_gen_id }} {
+    font-size: 14px;
+    font-weight: 500;
+    color: {{ block.settings.text_color }};
+    margin: 0 0 4px 0;
+    line-height: 1.3;
+  }
+
+  .ai-cart-item-variant-{{ ai_gen_id }} {
+    font-size: 12px;
+    color: {{ block.settings.text_color }};
+    opacity: 0.7;
+    margin: 0 0 4px 0;
+  }
+
+  .ai-cart-item-price-{{ ai_gen_id }} {
+    font-size: 14px;
+    font-weight: 500;
+    color: {{ block.settings.text_color }};
+    margin: 0;
+  }
+
+  @media screen and (max-width: 768px) {
+    .ai-cart-popup-drawer-{{ ai_gen_id }} {
+      width: 100%;
+      max-width: 100vw;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .ai-cart-popup-header-{{ ai_gen_id }} {
+      padding: {{ block.settings.header_padding | times: 0.8 }}px;
+    }.ai-cart-popup-content-{{ ai_gen_id }} {
+      padding: {{ block.settings.content_padding | times: 0.8 }}px;
+    }
+    .ai-cart-popup-footer-{{ ai_gen_id }} {
+      padding: {{ block.settings.footer_padding | times: 0.8 }}px;
+    }
+  }
+{% endstyle %}
+
+<cart-popup-fix-{{ ai_gen_id }} 
+  class="ai-cart-popup-fix-{{ ai_gen_id }}"
+  {{ block.shopify_attributes }}
+>
+  <div class="ai-cart-popup-overlay-{{ ai_gen_id }}"></div>
+  <div class="ai-cart-popup-drawer-{{ ai_gen_id }}">
+    <div class="ai-cart-popup-header-{{ ai_gen_id }}">
+      <h2 class="ai-cart-popup-title-{{ ai_gen_id }}">{{ block.settings.cart_title }}</h2>
+      <button 
+        class="ai-cart-popup-close-{{ ai_gen_id }}"
+        aria-label="Close cart"
+        type="button"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    
+    <div class="ai-cart-popup-content-{{ ai_gen_id }}">
+      {% if cart.items.size > 0 %}
+        <div id="cart-items-{{ ai_gen_id }}">
+          {% for item in cart.items %}
+            <div class="ai-cart-item-{{ ai_gen_id }}" data-variant-id="{{ item.variant.id }}">
+              <div class="ai-cart-item-image-{{ ai_gen_id }}">
+                {% if item.image %}
+                  <img src="{{ item.image | image_url: width: 120 }}" alt="{{ item.title }}" width="60" height="60" loading="lazy">
+                {% else %}
+                  <div style="width: 60px; height: 60px; background-color: #f4f4f4; display: flex; align-items: center; justify-content: center;">
+                    {{ 'product-1' | placeholder_svg_tag }}
+                  </div>
+                {% endif %}
+              </div>
+              <div class="ai-cart-item-details-{{ ai_gen_id }}">
+                <h3 class="ai-cart-item-title-{{ ai_gen_id }}">{{ item.product.title }}</h3>
+                {% unless item.variant.title == 'Default Title' %}
+                  <p class="ai-cart-item-variant-{{ ai_gen_id }}">{{ item.variant.title }}</p>
+                {% endunless %}
+                <p class="ai-cart-item-price-{{ ai_gen_id }}">{{ item.final_price | money }} × {{ item.quantity }}</p>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      {% else %}
+        <div class="ai-cart-popup-empty-{{ ai_gen_id }}">
+          <div class="ai-cart-popup-empty-title-{{ ai_gen_id }}">{{ block.settings.empty_title }}</div>
+          <div class="ai-cart-popup-empty-text-{{ ai_gen_id }}">{{ block.settings.empty_text }}</div>
+        </div>
+      {% endif %}
+    </div>
+    
+    {% if cart.items.size > 0 %}
+      <div class="ai-cart-popup-footer-{{ ai_gen_id }}">
+        <div class="ai-cart-total-{{ ai_gen_id }}">
+          <span>{{ block.settings.total_label }}</span>
+          <span>{{ cart.total_price | money }}</span>
+        </div>
+        <a href="/checkout" class="ai-checkout-button-{{ ai_gen_id }}">
+          {{ block.settings.checkout_text }}
+        </a>
+        {% if block.settings.show_view_cart %}
+          <a href="/cart" class="ai-view-cart-button-{{ ai_gen_id }}">
+            {{ block.settings.view_cart_text }}
+          </a>
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+</cart-popup-fix-{{ ai_gen_id }}>
+
+<script>
+(function() {
+  class CartPopupFix{{ ai_gen_id }} extends HTMLElement {
+    constructor() {
+      super();
+      this.isOpen = false;
+    }
+
+    connectedCallback() {
+      this.overlay = this.querySelector('.ai-cart-popup-overlay-{{ ai_gen_id }}');
+      this.closeButton = this.querySelector('.ai-cart-popup-close-{{ ai_gen_id }}');
+      this.drawer = this.querySelector('.ai-cart-popup-drawer-{{ ai_gen_id }}');
+      
+      this.setupEventListeners();
+      this.observeCartChanges();
+      this.fixExistingCartTriggers();
+    }
+
+    setupEventListeners() {
+      this.closeButton.addEventListener('click', () => this.closeCart());
+      this.overlay.addEventListener('click', () => this.closeCart());
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && this.isOpen) {
+          this.closeCart();
+        }
+      });
+
+      this.drawer.addEventListener('click', (e) => e.stopPropagation());
+    }
+
+    fixExistingCartTriggers() {
+      const cartTriggers = document.querySelectorAll('[data-cart-trigger], .cart-trigger, .cart-icon, [href="/cart"]');
+      
+      cartTriggers.forEach(trigger => {
+        const newTrigger = trigger.cloneNode(true);
+        newTrigger.addEventListener('click', (e) => {
+          e.preventDefault();
+          this.openCart();
+        });
+        trigger.parentNode.replaceChild(newTrigger, trigger);
+      });document.addEventListener('click', (e) => {
+        const target = e.target.closest('a[href="/cart"], button[data-cart], .cart-link, .cart-icon-wrapper');
+        if (target) {
+          e.preventDefault();
+          this.openCart();
+        }
+      });
+    }
+
+    observeCartChanges() {
+      if (window.MutationObserver) {
+        const observer = new MutationObserver((mutations) => {
+          mutations.forEach((mutation) => {
+            if (mutation.type === 'childList') {
+              const addedNodes = Array.from(mutation.addedNodes);
+              addedNodes.forEach(node => {
+                if (node.nodeType === 1) {
+                  const cartTriggers = node.querySelectorAll ? node.querySelectorAll('[data-cart-trigger], .cart-trigger, .cart-icon') : [];
+                  cartTriggers.forEach(trigger => {
+                    trigger.addEventListener('click', (e) => {
+                      e.preventDefault();
+                      this.openCart();
+                    });
+                  });
+                }
+              });
+            }
+          });
+        });
+
+        observer.observe(document.body, {
+          childList: true,
+          subtree: true
+        });
+      }
+    }
+
+    openCart() {
+      this.isOpen = true;
+      this.classList.add('active');document.body.style.overflow = 'hidden';
+      
+      this.closeButton.focus();
+      
+      this.dispatchEvent(new CustomEvent('cart:opened', {
+        bubbles: true,
+        detail: { cartPopup: this }
+      }));
+    }
+
+    closeCart() {
+      this.isOpen = false;
+      this.classList.remove('active');
+      document.body.style.overflow = '';
+      
+      this.dispatchEvent(new CustomEvent('cart:closed', {
+        bubbles: true,
+        detail: { cartPopup: this }
+      }));
+    }
+
+    updateCartContent(cartHTML) {
+      const contentArea = this.querySelector('.ai-cart-popup-content-{{ ai_gen_id }}');
+      if (contentArea && cartHTML) {
+        contentArea.innerHTML = cartHTML;
+      }
+    }
+  }
+
+  customElements.define('cart-popup-fix-{{ ai_gen_id }}', CartPopupFix{{ ai_gen_id }});document.addEventListener('DOMContentLoaded', () => {
+    const existingCartDrawers = document.querySelectorAll('.cart-drawer, #cart-drawer, [data-cart-drawer]');
+    existingCartDrawers.forEach(drawer => {
+      if (drawer.style) {
+        drawer.style.display = 'none';
+      }
+    });
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Cart Popup Fix",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Cart Title"
+    },
+    {
+      "type": "text",
+      "id": "cart_title",
+      "label": "Cart title",
+      "default": "Shopping Cart"
+    },
+    {
+      "type": "text",
+      "id": "total_label",
+      "label": "Total label",
+      "default": "Subtotal"
+    },
+    {
+      "type": "header",
+      "content": "Checkout Button"
+    },
+    {
+      "type": "text",
+      "id": "checkout_text",
+      "label": "Checkout button text",
+      "default": "Checkout"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "Button background color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_color",
+      "label": "Button hover color",
+      "default": "#333333"
+    },
+    {
+      "type": "range",
+      "id": "button_padding",
+      "min": 8,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "label": "Button padding",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "button_font_size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Button font size",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "button_border_radius",
+      "min": 0,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "label": "Button border radius",
+      "default": 4
+    },
+    {
+      "type": "header",
+      "content": "View Cart Button"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_cart",
+      "label": "Show view cart button",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "view_cart_text",
+      "label": "View cart button text",
+      "default": "View Cart"
+    },
+    {
+      "type": "range",
+      "id": "secondary_button_padding",
+      "min": 6,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "label": "View cart button padding",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "secondary_button_font_size",
+      "min": 12,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "label": "View cart button font size",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Empty Cart"
+    },
+    {
+      "type": "text",
+      "id": "empty_title",
+      "label": "Empty cart title",
+      "default": "Your cart is empty"
+    },
+    {
+      "type": "text",
+      "id": "empty_text",
+      "label": "Empty cart text",
+      "default": "Add some products to get started"
+    },
+    {
+      "type": "header",
+      "content": "Drawer Style"
+    },
+    {
+      "type": "range",
+      "id": "drawer_width",
+      "min": 300,
+      "max": 600,
+      "step": 20,
+      "unit": "px",
+      "label": "Drawer width",
+      "default": 400
+    },
+    {
+      "type": "color",
+      "id": "drawer_background",
+      "label": "Drawer background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border color",
+      "default": "#e5e5e5"
+    },
+    {
+      "type": "range",
+      "id": "total_font_size",
+      "min": 14,
+      "max": 22,
+      "step": 1,
+      "unit": "px",
+      "label": "Total font size",
+      "default": 18
+    },
+    {
+      "type": "header",
+      "content": "Overlay"
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Overlay opacity",
+      "default": 50
+    },
+    {
+      "type": "header",
+      "content": "Close Button"
+    },
+    {
+      "type": "color",
+      "id": "close_hover_color",
+      "label": "Close button hover color",
+      "default": "#f5f5f5"
+    },
+    {
+      "type": "header",
+      "content": "Scrollbar"
+    },
+    {
+      "type": "color",
+      "id": "scrollbar_color",
+      "label": "Scrollbar color",
+      "default": "#cccccc"
+    },
+    {
+      "type": "color",
+      "id": "scrollbar_hover_color",
+      "label": "Scrollbar hover color",
+      "default": "#999999"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "header_padding",
+      "min": 10,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Header padding",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "content_padding",
+      "min": 10,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Content padding",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "footer_padding",
+      "min": 10,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Footer padding",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "min": 14,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Title font size",
+      "default": 18
+    }
+  ],
+  "presets": [
+    {
+      "name": "Cart Popup Fix"
+    }
+  ],
+  "tag": null
+}
+{% endschema %}

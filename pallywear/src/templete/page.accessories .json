@@ -1,0 +1,113 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "comparison_slider_aPBriw": {
+      "type": "comparison-slider",
+      "name": "t:sections.comparison-slider.presets.name",
+      "settings": {
+        "caption": "home > accessories",
+        "text_style": "caption-with-letter-spacing",
+        "text_size": "medium",
+        "title": "Accessories",
+        "heading_size": "medium",
+        "heading_style": "default",
+        "heading_tag": "h2",
+        "image": "shopify://shop_images/Best_Quality_Material_1.jpg",
+        "image_2": "shopify://shop_images/Fit_your_3_a90f2891-526f-40d5-a0c4-a4ee61358195.jpg",
+        "animate_slider": false,
+        "height": 550,
+        "before_text": "Before",
+        "after_text": "After",
+        "disable_before_after": false,
+        "full_width": false,
+        "color_scheme": "",
+        "accessibility_info": "Compare Items",
+        "padding_top": 12,
+        "padding_bottom": 12,
+        "ignore_spacing": false,
+        "margin_spacing": "negative",
+        "margin_top": 0,
+        "mobile_height": 450
+      }
+    },
+    "collection_list_accessories": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_bags": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "keychain"
+          }
+        },
+        "featured_collection_caps": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "bottles"
+          }
+        },
+        "featured_collection_K4b6gm": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "corporate-gifts"
+          }
+        },
+        "featured_collection_socks": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "corporate-gifts-1"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_bags",
+        "featured_collection_caps",
+        "featured_collection_K4b6gm",
+        "featured_collection_socks"
+      ],
+      "settings": {
+        "title": "Accessories Collections",
+        "heading_size": "medium",
+        "heading_style": "default",
+        "heading_tag": "h2",
+        "caption": "",
+        "text_style": "caption-with-letter-spacing",
+        "text_size": "medium",
+        "enable_desktop_slider": true,
+        "collection_list_style": "collection-list-one",
+        "image_ratio": "square",
+        "columns_desktop": 3,
+        "color_scheme": "",
+        "color_scheme_1": "",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "ignore_spacing": false,
+        "margin_spacing": "normal",
+        "margin_top": 0,
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "disable_arrow_mobile": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "comparison_slider_aPBriw",
+    "collection_list_accessories"
+  ]
+}

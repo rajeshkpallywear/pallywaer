@@ -1,0 +1,155 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "rich_text_GfwbcC": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_xPLkAD": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>Contact Us</p>",
+            "heading_size": "large",
+            "heading_style": "default",
+            "heading_tag": "h1",
+            "highlight_option": "underline-hand",
+            "word_animation_color": "#272727"
+          }
+        },
+        "text_77CFiD": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Pallywear Gifting Solutions Private Limited</strong></p><p>Have a question about your order, sizing, customization, or bulk purchase? We’re here to help.</p><p><strong>Phone:</strong><br/><br/>📞+91 89257-58585</p><p><strong>WhatsApp:</strong></p><p>+91 95975-28585</p><p><strong>Email:</strong><br/><br/>📩info@pallywear.com</p><p><strong>Address:</strong><br/><br/>🏬 <strong>PallyWear Gifting Solutions Private Limited</strong></p><p>No: 49/1, Mudichur Rd, near by parvathi nagar, Shanthi Nagar, Old Perungalathur, Chennai, Tamil Nadu 600063, India</p><p>We operate between the hours of 10:00 AM to 7:00 PM IST - Monday to Saturday.</p><p>We'll respond within 12-24 hours of receiving your message, mail or whatsapp.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_xPLkAD",
+        "text_77CFiD"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "full_width": true,
+        "color_scheme": "",
+        "padding_top": 12,
+        "padding_bottom": 0,
+        "ignore_spacing": false,
+        "margin_spacing": "negative",
+        "margin_top": 0,
+        "mobile_content_alignment": "left"
+      }
+    },
+    "1766056976c90b9098": {
+      "type": "apps",
+      "blocks": {
+        "google_reviews_google_carousel_one_4wCeeC": {
+          "type": "shopify://apps/google-reviews/blocks/google-carousel-one/4eeaae1c-902b-481c-bec5-3f32291a58d5",
+          "settings": {
+            "rank": "1",
+            "photo_size": "large",
+            "auto_scroll": true,
+            "auto_scroll_interval": 3,
+            "rating": true,
+            "submit_review_button": true,
+            "business_info": true,
+            "review_photo": true,
+            "review_card_shadow": false,
+            "corner_radius": 20,
+            "star_color": "#f6ab00",
+            "review_card_background": "#f3f6f9",
+            "content_color": "#000000",
+            "name_color": "#000000",
+            "date_color": "#7a7a7a",
+            "more_color": "#1a73e8",
+            "submit_button_background_color": "#0084ff",
+            "submit_button_text": "#ffffff",
+            "business_info_color": "#000000"
+          }
+        }
+      },
+      "block_order": [
+        "google_reviews_google_carousel_one_4wCeeC"
+      ],
+      "settings": {
+        "include_margins": true,
+        "padding_top": 96,
+        "padding_bottom": 96
+      }
+    },
+    "contact-form": {
+      "type": "contact-form",
+      "settings": {
+        "contact_style": "column",
+        "image": "shopify://shop_images/freepik__the-style-is-candid-image-photography-with-natural__89941.png",
+        "image_height": "adapt",
+        "hide_image": false,
+        "caption": "",
+        "text_style": "caption-with-letter-spacing",
+        "text_size": "medium",
+        "heading": "Contact Us",
+        "heading_size": "medium",
+        "heading_style": "default",
+        "heading_tag": "h2",
+        "text": "<p>We’d be delighted to connect with you! Our team is ready to assist. Reach out by filling in the email form below.</p>",
+        "button_label_1": "Contact us",
+        "button_link_1": "",
+        "button_style_secondary_1": true,
+        "full_width": false,
+        "hide_phone_field": false,
+        "color_scheme": "option-2",
+        "color_scheme_1": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "ignore_spacing": false,
+        "image_height_mobile": "small",
+        "margin_spacing": "positive",
+        "margin_top": 84
+      }
+    },
+    "location_map_wHw6Pi": {
+      "type": "location-map",
+      "name": "Location map",
+      "settings": {}
+    },
+    "map_embed": {
+      "type": "rich-text",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "full_width": true,
+        "color_scheme": "background-1",
+        "padding_top": 20,
+        "padding_bottom": 36,
+        "ignore_spacing": false,
+        "margin_spacing": "negative",
+        "margin_top": 0,
+        "mobile_content_alignment": "left"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_GfwbcC",
+    "1766056976c90b9098",
+    "contact-form",
+    "location_map_wHw6Pi",
+    "map_embed"
+  ]
+}

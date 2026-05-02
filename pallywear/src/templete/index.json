@@ -1,0 +1,921 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_banner_with_featured_collection": {
+      "type": "image-banner-with-featured-collection",
+      "settings": {
+        "image": "shopify://shop_images/first_banner_975bf9b3-c72c-4399-a672-09d3f2da9fa0.png",
+        "hide_image": false,
+        "image_overlay_opacity": 0,
+        "image_height": 88,
+        "full_width_banner": true,
+        "adapt_to_image": false,
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "enable_collection": true,
+        "collection": "featured-collection",
+        "collection_style": "collection-one",
+        "products_to_show": 12,
+        "columns_desktop": 4,
+        "full_width": false,
+        "enable_desktop_slider": true,
+        "desktop_margin_top": 230,
+        "mobile_margin_top": 110,
+        "image_ratio": "adapt",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "enable_quick_add": true,
+        "enable_quick_buy": true,
+        "quick_add_position": "overlay",
+        "color_scheme": "option-3",
+        "color_scheme_1": "option-1",
+        "padding_top": 0,
+        "padding_bottom": 8,
+        "ignore_spacing": false,
+        "image_overlay_opacity_mobile": 0,
+        "image_height_mobile": 56,
+        "margin_spacing": "negative",
+        "margin_top": 0,
+        "mobile_content_alignment": "center",
+        "columns_mobile": "1",
+        "disable_quick_add": true,
+        "swipe_on_mobile": true,
+        "disable_arrow_mobile": true
+      }
+    },
+    "collection_list": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_1": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "mens-comfort-polo"
+          }
+        },
+        "featured_collection_2": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "womens-shirt"
+          }
+        },
+        "featured_collection_3": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "shirts"
+          }
+        },
+        "featured_collection_4": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "womens-everyday-polo"
+          }
+        },
+        "featured_collection_5": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "mens-hoodie"
+          }
+        },
+        "featured_collection_6": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "womens-hoodie"
+          }
+        },
+        "featured_collection_7": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "corporate-gifts"
+          }
+        },
+        "featured_collection_8": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "bottles"
+          }
+        },
+        "featured_collection_9": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "keychain"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_1",
+        "featured_collection_2",
+        "featured_collection_3",
+        "featured_collection_4",
+        "featured_collection_5",
+        "featured_collection_6",
+        "featured_collection_7",
+        "featured_collection_8",
+        "featured_collection_9"
+      ],
+      "settings": {
+        "title": "Browse Collections",
+        "heading_size": "medium",
+        "heading_style": "default",
+        "heading_tag": "h2",
+        "caption": "",
+        "text_style": "caption-with-letter-spacing",
+        "text_size": "medium",
+        "enable_desktop_slider": true,
+        "collection_list_style": "collection-list-one",
+        "image_ratio": "adapt",
+        "columns_desktop": 6,
+        "color_scheme": "option-1",
+        "color_scheme_1": "option-1",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "ignore_spacing": true,
+        "margin_spacing": "negative",
+        "margin_top": 0,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "disable_arrow_mobile": true
+      }
+    },
+    "17660567004ec58834": {
+      "type": "apps",
+      "blocks": {
+        "google_reviews_google_carousel_one_4g8kH4": {
+          "type": "shopify://apps/google-reviews/blocks/google-carousel-one/4eeaae1c-902b-481c-bec5-3f32291a58d5",
+          "settings": {
+            "rank": "1",
+            "photo_size": "large",
+            "auto_scroll": true,
+            "auto_scroll_interval": 3,
+            "rating": true,
+            "submit_review_button": false,
+            "business_info": true,
+            "review_photo": true,
+            "review_card_shadow": false,
+            "corner_radius": 20,
+            "star_color": "#f6ab00",
+            "review_card_background": "#f3f6f9",
+            "content_color": "#000000",
+            "name_color": "#000000",
+            "date_color": "#7a7a7a",
+            "more_color": "#1a73e8",
+            "submit_button_background_color": "#0084ff",
+            "submit_button_text": "#ffffff",
+            "business_info_color": "#000000"
+          }
+        }
+      },
+      "block_order": [
+        "google_reviews_google_carousel_one_4g8kH4"
+      ],
+      "settings": {
+        "include_margins": true,
+        "padding_top": 96,
+        "padding_bottom": 96
+      }
+    },
+    "promotion_cards": {
+      "type": "promotion-cards",
+      "blocks": {
+        "column_1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/polo_men.png",
+            "caption": "Relax",
+            "title": "Comfort Polo",
+            "link_label": "Shop Now",
+            "link": "shopify://collections/mens-comfort-polo"
+          }
+        },
+        "column_2": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/sweat_shirt_black.png",
+            "caption": "Stay Warm",
+            "title": "Sweat Shirt",
+            "link_label": "Shop Now",
+            "link": "shopify://collections/mens-sweatshirt"
+          }
+        },
+        "column_3": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/women_polo.png",
+            "caption": "Daily Wear",
+            "title": "Everyday Polo",
+            "link_label": "Shop Now",
+            "link": "shopify://collections/womens-everyday-polo"
+          }
+        },
+        "column_4": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/navy_hoodie.png",
+            "caption": "Vibing",
+            "title": "Hoodie",
+            "link_label": "Shop Now",
+            "link": "shopify://collections/mens-hoodie"
+          }
+        },
+        "column_5": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/black_round_neck_men.png",
+            "caption": "Beast",
+            "title": "Men T-Shirt",
+            "link_label": "Shop Now",
+            "link": "shopify://collections/mens-t-shirt"
+          }
+        },
+        "column_6": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/white_T-shirt.png",
+            "caption": "Casual",
+            "title": "Women T-shirt",
+            "link_label": "Shop Now",
+            "link": "shopify://collections/womens-t-shirts"
+          }
+        }
+      },
+      "block_order": [
+        "column_1",
+        "column_2",
+        "column_3",
+        "column_4",
+        "column_5",
+        "column_6"
+      ],
+      "settings": {
+        "title": "Our Top Picks",
+        "heading_size": "medium",
+        "heading_style": "default",
+        "heading_tag": "h2",
+        "caption": "",
+        "text_style": "caption-with-letter-spacing",
+        "text_size": "medium",
+        "promotion_cards_style": "promotion-cards-one",
+        "columns_desktop": 4,
+        "enable_desktop_slider": true,
+        "color_scheme": "option-1",
+        "color_scheme_1": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "ignore_spacing": false,
+        "columns_mobile": "1",
+        "margin_spacing": "negative",
+        "margin_top": 0,
+        "swipe_on_mobile": true,
+        "disable_arrow_mobile": true
+      }
+    },
+    "rich-text": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p><em>Where Every Gift Tells a Story!</em></p>",
+            "heading_size": "medium",
+            "heading_style": "default",
+            "heading_tag": "h2",
+            "highlight_option": "underline",
+            "word_animation_color": "#d4c4d9"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>From curated collections to heartfelt packaging, every Pallywear gift is a story in itself - crafted to create joy, inspire connection, and leave a lasting impression.<br/><br/><br/></p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "full_width": true,
+        "color_scheme": "option-1",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "ignore_spacing": false,
+        "margin_spacing": "negative",
+        "margin_top": 36,
+        "mobile_content_alignment": "center"
+      }
+    },
+    "image_with_text": {
+      "type": "image-with-text",
+      "blocks": {
+        "caption": {
+          "type": "caption",
+          "settings": {
+            "caption": "Pallywear",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
+          }
+        },
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Drinkware You'll Love To Gift",
+            "heading_size": "medium",
+            "heading_style": "default",
+            "heading_tag": "h2"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Discover Pallywear’s signature collection of flasks, and bottles, crafted for utility, styled for sophistication. The perfect pick for gifting or upgrading your own shelf.<br/><br/><br/></p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "caption",
+        "heading",
+        "text"
+      ],
+      "custom_css": [],
+      "settings": {
+        "image": "shopify://shop_images/Elegent_Handle.jpg",
+        "caption": "Hydrate in Style",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "full_width": true,
+        "color_scheme": "option-1",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "ignore_spacing": false,
+        "margin_spacing": "negative",
+        "margin_top": 0,
+        "mobile_content_alignment": "left"
+      }
+    },
+    "slick_slider": {
+      "type": "slick-slider",
+      "blocks": {
+        "slide_1": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Fit_your_1_fa55baba-5fbb-413a-b3df-5f5b458b7d32.jpg",
+            "heading": "Sip in Style",
+            "caption": "Make every sip meaningful with Pallywear’s premium mugs and tumblers. Designed for daily elegance and crafted to impress, our drinkware is the perfect gift for your loved ones or yourself.",
+            "button_label": "Shop Now",
+            "link": "",
+            "show_link_button": false
+          }
+        },
+        "slide_2": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Fit_your_2_6082b02c-efcf-4243-af06-491318c553b6.jpg",
+            "heading": "Designed for comfort",
+            "caption": "Stay warm, cozy, and stylish with PallyWear’s Clothing, designed for all-day comfort and everyday durability.",
+            "button_label": "Shop Now",
+            "link": "",
+            "show_link_button": false
+          }
+        },
+        "slide_3": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Fit_your_3_a90f2891-526f-40d5-a0c4-a4ee61358195.jpg",
+            "heading": "Perfect Corporate Companion",
+            "caption": "Impress clients and inspire teams with Pallywear’s premium gift sets.\nFrom sleek bottles to essential stationery, every item is designed to elevate your brand presence and daily productivity.",
+            "button_label": "Shop Now",
+            "link": "",
+            "show_link_button": false
+          }
+        }
+      },
+      "block_order": [
+        "slide_1",
+        "slide_2",
+        "slide_3"
+      ],
+      "disabled": true,
+      "settings": {
+        "auto_rotate": true,
+        "slider_interval": 10,
+        "full_width": false,
+        "image_opacity": 0,
+        "opacity_mobile": true,
+        "hide_slider_desktop": false,
+        "hide_slider_mobile": false,
+        "heading_size": 9,
+        "heading_tag": "h3",
+        "heading_style": "none",
+        "caption_size": 1.6,
+        "caption_style": "none",
+        "link_size": 1.8,
+        "color_scheme": "option-1",
+        "margin_spacing": "negative",
+        "margin_top": 0,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "ignore_spacing": false
+      }
+    },
+    "info_cards": {
+      "type": "info-cards",
+      "settings": {
+        "full_width": false,
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "ignore_spacing": false,
+        "cards_style": "style-2",
+        "margin_spacing": "negative",
+        "margin_top": 36
+      }
+    },
+    "image_hotspots": {
+      "type": "image-hotspots",
+      "blocks": {
+        "tooltip_1": {
+          "type": "Tooltip",
+          "settings": {
+            "product": "",
+            "content": "Carry your brand, identity, or memories everywhere with PallyWear’s Premium Custom Keychain. Designed for both personal use and corporate branding, this keychain combines durability, elegance, and complete customization. Made with high-quality materials and available in engraving, printing, or embossing options.",
+            "top": 24,
+            "left": 37
+          }
+        },
+        "tooltip_XTqdXL": {
+          "type": "Tooltip",
+          "settings": {
+            "product": "",
+            "content": "Perfect for Personal or Corporate Use - Gifts, branding, giveaways, retail.",
+            "top": 20,
+            "left": 50
+          }
+        },
+        "tooltip_2": {
+          "type": "Tooltip",
+          "settings": {
+            "product": "",
+            "content": "Elevate your brand presence with premium, customised corporate gift sets. From smart bottles to stylish accessories, surprise your clients and employees with thoughtful, utility-based gifts.",
+            "top": 32,
+            "left": 73
+          }
+        },
+        "tooltip_pEcwiT": {
+          "type": "Tooltip",
+          "settings": {
+            "product": "",
+            "content": "Make a lasting impression with PallyWear’s Premium Corporate Gift Box - an elegant, executive-grade gift set designed to delight clients, employees, and VIP recipients. This luxury box includes essential, high-quality items like premium diary, executive pen, custom keychain, visiting card holder, all neatly arranged in a beautifully crafted presentation box.",
+            "top": 20,
+            "left": 50
+          }
+        }
+      },
+      "block_order": [
+        "tooltip_1",
+        "tooltip_XTqdXL",
+        "tooltip_2",
+        "tooltip_pEcwiT"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/Corporate_products_design_1.jpg",
+        "image_size": "default",
+        "caption": "PALLYWEAR",
+        "text_style": "caption-with-letter-spacing",
+        "text_size": "medium",
+        "heading": "CORPORATE GIFTS",
+        "heading_size": "medium",
+        "heading_style": "default",
+        "heading_tag": "h2",
+        "layout": "image_first",
+        "full_width": false,
+        "color_scheme": "option-1",
+        "tooltip_background_color": "#ffffff",
+        "padding_top": 0,
+        "padding_bottom": 12,
+        "ignore_spacing": false,
+        "margin_spacing": "negative",
+        "margin_top": 0,
+        "layout_mobile": "image_first"
+      }
+    },
+    "two_images_text": {
+      "type": "two-images-text",
+      "blocks": {
+        "caption": {
+          "type": "caption",
+          "settings": {
+            "caption": "Pallywear",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
+          }
+        },
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "From Desk to Daily – We’ve Got You Covered",
+            "heading_size": "small",
+            "heading_style": "default",
+            "heading_tag": "h2"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Whether it’s elevating your brand with premium corporate gifts or adding color to your everyday with our signature apparel, Pallywear delivers thoughtful utility and timeless comfort.</p>"
+          }
+        },
+        "button": {
+          "type": "button",
+          "settings": {
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "image_1": {
+          "type": "image_1",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "caption",
+        "heading",
+        "text",
+        "button",
+        "image_1"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/Best_Quality_Material_1.jpg",
+        "image_2": "shopify://shop_images/Choose_Your_Style.jpg",
+        "layout": "image_first",
+        "color_scheme": "option-1",
+        "padding_top": 0,
+        "padding_bottom": 44,
+        "ignore_spacing": false,
+        "margin_spacing": "negative",
+        "margin_top": 0,
+        "layout_mobile": "image_first"
+      }
+    },
+    "featured_collection_wkwdgb": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "collection": "featured-collection",
+        "caption": "pallywear",
+        "text_style": "caption-with-letter-spacing",
+        "text_size": "medium",
+        "title": "Featured collection",
+        "heading_size": "medium",
+        "heading_style": "default",
+        "heading_tag": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection_style": "collection-three",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": false,
+        "view_all_style": "link",
+        "enable_desktop_slider": false,
+        "image_ratio": "adapt",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "enable_quick_add": false,
+        "enable_quick_buy": true,
+        "quick_add_position": "default",
+        "color_scheme": "",
+        "color_scheme_1": "",
+        "padding_top": 12,
+        "padding_bottom": 0,
+        "ignore_spacing": false,
+        "margin_spacing": "negative",
+        "margin_top": 0,
+        "columns_mobile": "1",
+        "disable_quick_add": false,
+        "swipe_on_mobile": false,
+        "disable_arrow_mobile": true
+      }
+    },
+    "events_calendar": {
+      "type": "events-calendar",
+      "blocks": {
+        "event_2": {
+          "type": "event",
+          "settings": {
+            "image": "shopify://shop_images/POLO_b528ea9d-f7c4-4fb8-a911-6220298fdb94.png",
+            "event_date": 0,
+            "event_month": "",
+            "hide_date": true,
+            "event_time": "",
+            "event_price": "",
+            "event_heading": "Everyday Style, Effortlessly Cool",
+            "heading_size": "medium",
+            "heading_tag": "h2",
+            "event_description": "<p>Discover polos that blend modern design with breathable comfort. Whether at work or on the move, wear confidence with Pallywear.</p>",
+            "event_location": "",
+            "link_label": "Explore Now",
+            "link": "shopify://collections/mens-comfort-polo",
+            "show_text_box": false,
+            "image_overlay_opacity": 60,
+            "color_scheme_1": ""
+          }
+        },
+        "event_3": {
+          "type": "event",
+          "settings": {
+            "image": "shopify://shop_images/SPORTS_WEAR_fdc377f7-4da5-474c-9e35-9aa3e071acb1.png",
+            "event_date": 0,
+            "event_month": "",
+            "hide_date": true,
+            "event_time": "",
+            "event_price": "",
+            "event_heading": "Bold Looks. Bright Colors.",
+            "heading_size": "medium",
+            "heading_tag": "h2",
+            "event_description": "<p>Stand out with Pallywear’s latest collection of graphic tees and statement styles. Built for those who love to express through fashion.</p>",
+            "event_location": "",
+            "link_label": "Explore Now",
+            "link": "shopify://collections/sports-jersey",
+            "show_text_box": false,
+            "image_overlay_opacity": 60,
+            "color_scheme_1": ""
+          }
+        }
+      },
+      "block_order": [
+        "event_2",
+        "event_3"
+      ],
+      "settings": {
+        "caption": "",
+        "text_style": "caption-with-letter-spacing",
+        "text_size": "medium",
+        "heading": "Fashion.Fun.Fresh Drops",
+        "heading_size": "medium",
+        "heading_style": "default",
+        "heading_tag": "h2",
+        "banner_height": "small",
+        "animate_slider": false,
+        "full_width": false,
+        "disable_animation": false,
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 0,
+        "ignore_spacing": false,
+        "margin_spacing": "negative",
+        "margin_top": 0
+      }
+    },
+    "multicolumn": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/10k_60ac8d5d-cfa9-461b-9d7a-fd6136be2cc3.png",
+            "hide_image": false,
+            "title": "10,000+",
+            "text": "<p>Yearly Sales</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_2": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/year.png",
+            "hide_image": false,
+            "title": "2+",
+            "text": "<p>Years on the market</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_5": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/handshake.png",
+            "hide_image": false,
+            "title": "97%",
+            "text": "<p>Returning customers</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_1",
+        "column_2",
+        "column_5"
+      ],
+      "settings": {
+        "multicolumn_style": "style-one",
+        "enable_card_background": true,
+        "caption": "",
+        "text_style": "caption-with-letter-spacing",
+        "text_size": "medium",
+        "title": "",
+        "heading_size": "medium",
+        "heading_style": "default",
+        "heading_tag": "h2",
+        "image_width": "third",
+        "image_ratio": "circle",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "option-2",
+        "color_scheme_1": "",
+        "padding_top": 16,
+        "padding_bottom": 16,
+        "ignore_spacing": false,
+        "margin_spacing": "negative",
+        "margin_top": 24,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "disable_arrow_mobile": true
+      }
+    },
+    "image_banner": {
+      "type": "image-banner",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>Redefine Everyday Comfort</p>",
+            "heading_size": "large",
+            "heading_style": "default",
+            "heading_tag": "h2",
+            "highlight_option": "underline-hand",
+            "word_animation_color": "#ffffff"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Step into effortless style with Pallywear’s signature collection. From workdays to weekends, our versatile outfits are crafted for comfort, confidence, and a modern look that fits every mood.</p>",
+            "text_style": "body"
+          }
+        },
+        "buttons": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Explore Now",
+            "button_link_1": "shopify://collections/mens-comfort-polo",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text",
+        "buttons"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/drop_banner_2.png",
+        "image_overlay_opacity": 40,
+        "image_border_radius": 50,
+        "image_height": "medium",
+        "desktop_content_position": "middle-left",
+        "show_text_box": false,
+        "desktop_content_alignment": "left",
+        "ignore_spacing": true,
+        "color_scheme_1": "",
+        "margin_spacing": "positive",
+        "margin_top": 56,
+        "mobile_content_alignment": "center",
+        "show_text_below": false
+      }
+    },
+    "1753340591f279f48d": {
+      "type": "_blocks",
+      "settings": {}
+    },
+    "1753341283a273655a": {
+      "type": "_blocks",
+      "settings": {}
+    },
+    "1753342206cfc5f8ea": {
+      "type": "_blocks",
+      "settings": {}
+    },
+    "17533425960a1176e5": {
+      "type": "_blocks",
+      "settings": {}
+    },
+    "175334281747ebc173": {
+      "type": "_blocks",
+      "settings": {}
+    },
+    "17533441285b6ef3ae": {
+      "type": "_blocks",
+      "settings": {}
+    },
+    "1753766286e4d4c463": {
+      "type": "_blocks",
+      "settings": {}
+    },
+    "1754382339536f73c2": {
+      "type": "_blocks",
+      "settings": {}
+    },
+    "1754382457889aee1b": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_ade2258_qmijE7": {
+          "type": "ai_gen_block_ade2258",
+          "settings": {
+            "cart_title": "Shopping Cart",
+            "total_label": "Subtotal",
+            "checkout_text": "Checkout",
+            "button_color": "#000000",
+            "button_text_color": "#ffffff",
+            "button_hover_color": "#333333",
+            "button_padding": 16,
+            "button_font_size": 16,
+            "button_border_radius": 4,
+            "show_view_cart": true,
+            "view_cart_text": "View Cart",
+            "secondary_button_padding": 12,
+            "secondary_button_font_size": 14,
+            "empty_title": "Your cart is empty",
+            "empty_text": "Add some products to get started",
+            "drawer_width": 400,
+            "drawer_background": "#ffffff",
+            "text_color": "#000000",
+            "border_color": "#e5e5e5",
+            "total_font_size": 18,
+            "overlay_color": "#000000",
+            "overlay_opacity": 50,
+            "close_hover_color": "#f5f5f5",
+            "scrollbar_color": "#cccccc",
+            "scrollbar_hover_color": "#999999",
+            "header_padding": 20,
+            "content_padding": 20,
+            "footer_padding": 22,
+            "title_size": 18
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_ade2258_qmijE7"
+      ],
+      "settings": {}
+    },
+    "17543825583e411609": {
+      "type": "_blocks",
+      "settings": {}
+    },
+    "1754383057d68556f1": {
+      "type": "_blocks",
+      "settings": {}
+    }
+  },
+  "order": [
+    "image_banner_with_featured_collection",
+    "collection_list",
+    "17660567004ec58834",
+    "promotion_cards",
+    "rich-text",
+    "image_with_text",
+    "slick_slider",
+    "info_cards",
+    "image_hotspots",
+    "two_images_text",
+    "featured_collection_wkwdgb",
+    "events_calendar",
+    "multicolumn",
+    "image_banner",
+    "1753340591f279f48d",
+    "1753341283a273655a",
+    "1753342206cfc5f8ea",
+    "17533425960a1176e5",
+    "175334281747ebc173",
+    "17533441285b6ef3ae",
+    "1753766286e4d4c463",
+    "1754382339536f73c2",
+    "1754382457889aee1b",
+    "17543825583e411609",
+    "1754383057d68556f1"
+  ]
+}
